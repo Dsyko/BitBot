@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://bitbucket.org/nitrous/mtgox-api/overview -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>
+  nitrous / MtGox API   — Bitbucket
+</title>
+  <link rel="icon" type="image/png" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/0a8a7e292790/img/favicon.png">
+  <meta id="bb-canon-url" name="bb-canon-url" content="https://bitbucket.org">
+  
+  
+<link rel="stylesheet" href="./nitrous   MtGox API — Bitbucket_files/e97795478c58.css" type="text/css">
+<link rel="stylesheet" href="./nitrous   MtGox API — Bitbucket_files/8c14fb852c1b.css" type="text/css">
+
+  <!--[if lt IE 9]><link rel="stylesheet" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/0a8a7e292790/css/aui/aui-ie.css" media="all"><![endif]-->
+  <!--[if IE 9]><link rel="stylesheet" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/0a8a7e292790/css/aui/aui-ie9.css" media="all"><![endif]-->
+  <!--[if IE]><link rel="stylesheet" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/0a8a7e292790/css/aui-overrides-ie.css" media="all"><![endif]-->
+  <meta name="description" content="
+  
+    
+  
+">
+  <link rel="search" type="application/opensearchdescription+xml" href="https://bitbucket.org/opensearch.xml" title="Bitbucket">
+  
+  
+  <link href="https://bitbucket.org/nitrous/mtgox-api/rss" rel="alternate nofollow" type="application/rss+xml" title="RSS feed for MtGox API">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@bitbucket">
+  <meta name="og:type" content="bitbucket:gitrepository">
+  <meta name="og:title" content="nitrous / MtGox API">
+  <meta name="og:url" content="https://bitbucket.org/nitrous/mtgox-api">
+  
+    <meta name="og:description" content="Git repository hosted by Bitbucket.">
+  
+  
+    <meta name="og:image" content="https://d3oaxc4q5k2d6q.cloudfront.net/m/0a8a7e292790/img/language-avatars/default_128.png">
+  
+
+<script type="text/javascript" async="" src="./nitrous   MtGox API — Bitbucket_files/inpage_linkid.js" id="undefined"></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><script src="./nitrous   MtGox API — Bitbucket_files/ga.js" async="true"></script></head>
+<body class="aui-layout production  windows chrome">
+<script type="text/javascript" src="./nitrous   MtGox API — Bitbucket_files/e98deabf8a2e.js"></script>
+<div id="page">
+  <div id="wrapper">
+    
+    <header id="header" role="banner">
+      
+        
+      
+      <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+        <div class="aui-header-inner">
+          <div class="aui-header-primary">
+            <h1 class="aui-header-logo aui-header-logo-bitbucket">
+              <a href="https://bitbucket.org/" class="aui-nav-imagelink" id="logo-link" title="( type &#39;g&#39; then &#39;d&#39; )">
+                <span class="aui-header-logo-device">Bitbucket</span>
+              </a>
+            </h1>
+            
+            <script id="repo-dropdown-template" type="text/html">
+  
+
+[[#hasViewed]]
+  <div class="aui-dropdown2-section">
+    <strong class="viewed">Recently viewed</strong>
+    <ul class="aui-list-truncate">
+      [[#viewed]]
+        <li class="[[#is_private]]private[[/is_private]][[^is_private]]public[[/is_private]] repository">
+          <a href="[[url]]" title="[[owner]]/[[name]]" class=" aui-icon-container">
+            <img class="repo-avatar size16" src="[[{avatar}]]" alt="[[owner]]/[[name]] avatar"/>
+            [[owner]] / [[name]]
+          </a>
+        </li>
+      [[/viewed]]
+    </ul>
+  </div>
+[[/hasViewed]]
+[[#hasUpdated]]
+<div class="aui-dropdown2-section">
+  <strong class="updated">Recently updated</strong>
+  <ul class="aui-list-truncate">
+    [[#updated]]
+    <li class="[[#is_private]]private[[/is_private]][[^is_private]]public[[/is_private]] repository">
+      <a href="[[url]]" title="[[owner]]/[[name]]" class=" aui-icon-container">
+        <img class="repo-avatar size16" src="[[{avatar}]]" alt="[[owner]]/[[name]] avatar"/>
+        [[owner]] / [[name]]
+      </a>
+    </li>
+    [[/updated]]
+  </ul>
+</div>
+[[/hasUpdated]]
+
+</script>
+            <ul role="menu" class="aui-nav">
+              
+                <li>
+                  <a href="https://bitbucket.org/plans">
+                      Pricing &amp; signup
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bitbucket.org/whats-new">
+                    What's new
+                  </a>
+                </li>
+              
+            </ul>
+            
+          </div>
+          <div class="aui-header-secondary">
+            
+            <ul role="menu" class="aui-nav">
+              <li>
+                <form action="https://bitbucket.org/repo/all" method="get" class="aui-quicksearch">
+                  <label for="search-query" class="assistive">owner/repository</label>
+                  <input id="search-query" class="search ui-autocomplete-input" type="text" placeholder="owner/repository" name="name" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" title="( type &#39;/&#39; )">
+                </form>
+              </li>
+              <li>
+                <a class="aui-dropdown2-trigger" aria-controls="header-help-dropdown" aria-owns="header-help-dropdown" aria-haspopup="true" data-container="#header .aui-header-inner" href="https://bitbucket.org/nitrous/mtgox-api/overview#header-help-dropdown">
+                  <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span><span class="aui-icon-dropdown"></span>
+                </a>
+                <nav id="header-help-dropdown" class="aui-dropdown2 aui-style-default aui-dropdown2-in-header" aria-hidden="true">
+                  <div class="aui-dropdown2-section">
+                    <ul>
+                      <li>
+                        <a href="https://bitbucket.org/whats-new" id="features-link">
+                          What's new
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="aui-dropdown2-section">
+                    <ul>
+                      <li><a href="https://confluence.atlassian.com/display/BITBUCKET/bitbucket+Documentation+Home" target="_blank">Documentation</a></li>
+                      <li><a href="https://confluence.atlassian.com/display/BITBUCKET/bitbucket+101" target="_blank">Bitbucket 101</a></li>
+                      <li><a href="https://confluence.atlassian.com/display/BBKB/Bitbucket+Knowledge+Base+Home" target="_blank">Knowledge base</a></li>
+                    </ul>
+                  </div>
+                  <div class="aui-dropdown2-section">
+                    <ul>
+                      <li><a href="https://answers.atlassian.com/tags/bitbucket/" target="_blank">Bitbucket on Atlassian Answers</a></li>
+                      <li><a href="https://bitbucket.org/support">Support</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </li>
+                
+                  
+                
+              
+                  <li>
+                    <a class="aui-button aui-button-primary aui-style" href="https://bitbucket.org/account/signup/">
+                      Sign up
+                    </a>
+                  </li>
+                <li id="user-options">
+                  <a href="https://bitbucket.org/account/signin/?next=/nitrous/mtgox-api/overview" class="aui-nav-link login-link">Log in</a>
+                </li>
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    </header>
+      <header id="account-warning" role="banner" class="aui-message-banner warning ">
+        <div class="center-content">
+          <span class="aui-icon aui-icon-warning"></span>
+          <span class="message">
+            
+          </span>
+        </div>
+      </header>
+    
+      <header id="aui-message-bar">
+        
+      </header>
+    
+    
+  <header id="repo-warning" role="banner" class="aui-message-banner warning">
+    <div class="center-content">
+      <span class="aui-icon aui-icon-warning"></span>
+      <span class="message">
+      </span>
+    </div>
+  </header>
+  <script id="repo-warning-template" type="text/html">
+  
+
+
+
+
+  This repository's ownership is pending transfer to <a href="/[[username]]">[[username]]</a>.
+  Visit the <a href="/nitrous/mtgox-api/admin/transfer">transfer repository page</a> to view more details.
+
+
+</script>
+  <header id="repo-header" class="subhead row">
+    <div class="center-content">
+      <div class="repo-summary">
+        <a class="repo-avatar-link" href="https://bitbucket.org/nitrous/mtgox-api">
+          <span class="repo-avatar-container size64" title="nitrous/MtGox API">
+  <img alt="nitrous/MtGox API" src="./nitrous   MtGox API — Bitbucket_files/default_64.png">
+</span>
+
+          
+        </a>
+        <h1><a class="repo-link" href="https://bitbucket.org/nitrous/mtgox-api">MtGox API</a></h1>
+        <ul class="repo-metadata clearfix">
+          <li>
+            <a class="user" href="https://bitbucket.org/nitrous">
+              <span class="icon user">User icon</span>
+              <span>nitrous</span>
+            </a>
+          </li>
+          
+          
+          <li class="social">
+            <a class="follow" id="repo-follow" rel="nofollow" href="https://bitbucket.org/nitrous/mtgox-api/follow" title="( type &#39;x&#39; then &#39;w&#39; )">
+              <span class="icon follow">Follow icon</span>
+              <span class="text">Follow</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div id="repo-toolbar" class="bb-toolbar">
+        
+        <div class="aui-buttons">
+          <a id="repo-clone-button" class="aui-button aui-style" href="https://bitbucket.org/nitrous/mtgox-api.git">
+            <span class="icon clone">Clone icon</span>
+            <span>Clone</span>
+            <span class="aui-icon-dropdown"></span>
+          </a>
+          <a id="fork-button" class="aui-button aui-style" href="https://bitbucket.org/nitrous/mtgox-api/fork" title="( type &#39;x&#39; then &#39;f&#39; )">
+            <span class="icon fork">Fork icon</span>
+            <span>Fork</span>
+          </a>
+        </div>
+        <div class="aui-buttons">
+          <a id="compare-button" class="aui-button aui-style" href="https://bitbucket.org/nitrous/mtgox-api/compare" title="( type &#39;x&#39; then &#39;c&#39; )">
+            <span class="icon compare">Compare icon</span>
+            <span>Compare</span>
+          </a>
+          <a id="pull-request-button" class="aui-button aui-style" href="https://bitbucket.org/nitrous/mtgox-api/pull-request/new" title="( type &#39;x&#39; then &#39;p&#39; )">
+            <span class="icon pull-request">Pull request icon</span>
+            <span>Pull request</span>
+          </a>
+        </div>
+        
+        
+
+<div id="repo-clone-dialog" class="clone-dialog hidden">
+  
+<div class="clone-url">
+  <div class="aui-buttons">
+    <a href="https://bitbucket.org/nitrous/mtgox-api.git" class="aui-button aui-style aui-dropdown2-trigger" aria-haspopup="true" aria-owns="clone-url-dropdown-header">
+      <span class="dropdown-text">HTTPS</span>
+    </a>
+    <div id="clone-url-dropdown-header" class="aui-dropdown2 aui-style-default">
+      <ul class="aui-list-truncate">
+        <li>
+          <a href="https://bitbucket.org/nitrous/mtgox-api.git" data-command="git clone https://bitbucket.org/nitrous/mtgox-api.git" class="item-link https">HTTPS
+          </a>
+        </li>
+        <li>
+          <a href="ssh://git@bitbucket.org/nitrous/mtgox-api.git" data-command="git clone git@bitbucket.org:nitrous/mtgox-api.git" class="item-link ssh">SSH
+          </a>
+        </li>
+      </ul>
+    </div>
+    <input type="text" readonly="readonly" value="git clone https://bitbucket.org/nitrous/mtgox-api.git">
+  </div>
+  
+  <p>Need help cloning? Visit
+     <a href="https://confluence.atlassian.com/x/cgozDQ" target="_blank">Bitbucket 101</a>.</p>
+  
+</div>
+
+
+  
+  
+  
+
+<div class="clone-in-sourcetree sourcetree-windows" data-https-url="https://bitbucket.org/nitrous/mtgox-api.git" data-ssh-url="ssh://git@bitbucket.org/nitrous/mtgox-api.git">
+  <p><button class="aui-button aui-style aui-button-primary">Clone in SourceTree</button></p>
+
+
+  <p class="windows-text">
+      
+        <a href="http://www.sourcetreeapp.com/" target="_blank">SourceTree</a>
+        is a free Windows client by Atlassian for Git and Subversion.
+      
+  </p>
+  <p class="mac-text">
+      
+        <a href="http://www.sourcetreeapp.com/" target="_blank">SourceTree</a>
+        is a free Mac client by Atlassian for Git, Mercurial, and Subversion.
+      
+  </p>
+</div>
+
+  
+</div>
+
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </header>
+  <nav id="repo-tabs" class="aui-navgroup aui-navgroup-horizontal aui-navgroup-horizontal-roomy">
+    <div class="aui-navgroup-inner">
+      <div class="aui-navgroup-primary">
+        <ul class="aui-nav">
+          
+            <li class="aui-nav-selected">
+              <a href="./nitrous   MtGox API — Bitbucket_files/nitrous   MtGox API — Bitbucket.htm" id="repo-overview-link" title="( type &#39;r&#39; then &#39;o&#39; )">Overview</a>
+            </li>
+          
+          
+            <li>
+              <a href="https://bitbucket.org/nitrous/mtgox-api/src" id="repo-source-link" title="( type &#39;r&#39; then &#39;s&#39; )">Source</a>
+            </li>
+          
+          
+            <li>
+              <a href="https://bitbucket.org/nitrous/mtgox-api/commits" id="repo-commits-link" title="( type &#39;r&#39; then &#39;c&#39; )">
+                Commits
+              </a>
+            </li>
+          
+          
+            <li>
+              <a href="https://bitbucket.org/nitrous/mtgox-api/pull-requests" id="repo-pullrequests-link" title="( type &#39;r&#39; then &#39;p&#39; )">
+                Pull requests
+                
+                  
+                
+              </a>
+            </li>
+          
+          
+            
+          
+            <li id="issues-tab" class="
+              
+                hidden
+              
+            ">
+              <a href="https://bitbucket.org/nitrous/mtgox-api/issues?status=new&status=open" id="repo-issues-link" title="( type &#39;r&#39; then &#39;i&#39; )">
+                Issues
+                
+                  
+                
+              </a>
+            </li>
+            <li id="wiki-tab" class="
+                
+                  hidden
+                
+              ">
+              <a href="https://bitbucket.org/nitrous/mtgox-api/wiki" id="repo-wiki-link" title="( type &#39;r&#39; then &#39;w&#39; )">Wiki</a>
+            </li>
+          
+            <li>
+            <a href="https://bitbucket.org/nitrous/mtgox-api/downloads" id="repo-downloads-link" title="( type &#39;r&#39; then &#39;d&#39; )">
+              Downloads
+              
+                
+              
+            </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="aui-navgroup-secondary">
+        <ul class="aui-nav">
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div id="content" role="main">
+      
+  <div id="repo-content">
+    
+  <div id="repo-overview">
+  
+    
+    
+      <div class="column">
+        
+          
+<section class="ad-banner" id="signup-banner">
+  <div>
+    <p>
+      
+        Bitbucket is a code hosting site with unlimited public and private
+        repositories.  We're also free for small teams!
+      
+    </p>
+    <a class="aui-button aui-button-primary aui-style signup-button" href="https://bitbucket.org/account/signup/">Try Bitbucket, free</a>
+    <span class="close" title="Dismiss this banner"></span>
+  </div>
+</section>
+        
+        
+          
+            
+              <section id="readme">
+                
+                  <article class="readme file">
+                    <h1 id="markdown-header-unofficial-documentation-for-mtgoxs-http-api-v2">Unofficial Documentation for MtGox's HTTP API v2</h1>
+<hr>
+<p>Tips and donations: <code>1VvKzcFibZdMyQdbXpSYcyoYvBsLLodDa</code></p>
+<p>Feedback here: <a href="https://bitcointalk.org/index.php?topic=164404.0">https://bitcointalk.org/index.php?topic=164404.0</a></p>
+<p><strong>If you just want information on each method, go <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">here</a></strong></p>
+<h3 id="markdown-header-sections">Sections</h3>
+<ol>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-background">Background</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-general-information">General Information</a><ul>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-currencies">Currencies</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-security">Security</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-requests">Requests</a></li>
+</ul>
+</li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-methods">Methods</a><ul>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-glossary">Glossary</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">Contents</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-money">Money</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-security_1">Security</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-others">Others</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="markdown-header-background">Background</h2>
+<p>I was looking to start building a trading bot using MtGox's API before I started investing in bitcoins, and even though version 1 of the API is available and well-documented, it seems that it will soon be redundant, just as version 0 is, with the advent of version 2. However, there is next to no documentation for version 2, so I have started this project to collect and compile an unofficial documentation for those who need it.</p>
+<p>Not all the information may be 100% accurate or complete due to the limited information available, and detective work needed, but hopefully it will be suitably reliable for general use. In addition, I hope that this document will become increasingly accurate in the future as more official information and experience is gained. Currently, there is information on most of the actual trading methods, and there is detailed information on how to access the API. </p>
+<p>Upon completion, each method should give a brief description of its use, a table of arguments if applicable, one or two example requests, and brief but detailed bullet points of any useful information and peculiarities with regard to how the method is used in practice. I also plan to list which rights an API key needs to access each method.</p>
+<p>Thank you, and good luck in developing your v2 programs!</p>
+<h2 id="markdown-header-general-information">General Information</h2>
+<p>Each request is posted over HTTPS to MtGox's servers, with a generic URL format, e.g:</p>
+<p><a href="https://data.mtgox.com/api/2/BTCUSD/money/ticker">https://data.mtgox.com/api/2/BTCUSD/money/ticker</a></p>
+<p>Each request path needs a currency pair, the first currency being <code>BTC</code>, and the second one of the currencies specified below in the currencies section. The currency pair is followed by an API method in URL path form, all of which are currently found in the <code>money</code> category.</p>
+<p>Each request also needs to be signed using an API key and an HMAC hash constructed from an API secret and the post data.</p>
+<h3 id="markdown-header-currencies">Currencies</h3>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Divisions</th>
+<th>SF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC</td>
+<td>Bitcoin</td>
+<td>100,000,000</td>
+<td>1e8</td>
+</tr>
+<tr>
+<td>USD</td>
+<td>US Dollar</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>GBP</td>
+<td>Great British Pound</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>EUR</td>
+<td>Euro</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>JPY</td>
+<td>Japanese Yen</td>
+<td>1000</td>
+<td>1e3</td>
+</tr>
+<tr>
+<td>AUD</td>
+<td>Australian Dollar</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>CAD</td>
+<td>Canadian Dollar</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>CHF</td>
+<td>Swiss Franc</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>CNY</td>
+<td>Chinese Yuan</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>DKK</td>
+<td>Danish Krone</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>HKD</td>
+<td>Hong Kong Dollar</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>PLN</td>
+<td>Polish Złoty</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>RUB</td>
+<td>Russian Rouble</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>SEK</td>
+<td>Swedish Krona</td>
+<td>1000</td>
+<td>1e3</td>
+</tr>
+<tr>
+<td>SGD</td>
+<td>Singapore Dollar</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+<tr>
+<td>THB</td>
+<td>Thai Baht</td>
+<td>100,000</td>
+<td>1e5</td>
+</tr>
+</tbody>
+</table>
+<p>Note the divisions column (the SF column is the same, but gives each in standard form with the number of 0s). When communicating with the MtGox server, you will often have the opportunity to work with ints or floats. The float values are deprecated however, and ints are recommended as they are precise. The divisions tells you what units each of these values is in. So if, for example, you request a bitcoin value, and get a response of <code>{'value_int': 69655509977}</code>, then the amount in bitcoins is <code>69655509977/1e8</code>, or <code>696.55509977 BTC</code>. Of course there is no requirement that you perform these conversions, but you should be aware of the differences in value.</p>
+<h3 id="markdown-header-security">Security</h3>
+<p>In order to use the API, you must obtain an API key and secret. To do this, login to <a href="https://mtgox.com/security">https://mtgox.com/security</a>, and open the <code>Advanced API Key Creation</code> section. You can give your API key a name, and specify which permissions (rights) it will have. Once you have customised it to your liking, click <code>Create Key</code>. Make sure to copy down your API secret, as the website will not show you it again after this point.</p>
+<p>The API keys you have created are shown under <code>Current API Keys</code> after you refresh the page. From here, you can retrieve your API key if you forget it, and you can change what rights it has at any time. If you believe it has been comprised, you should <strong>immediately revoke the api key by clicking on the red cross</strong></p>
+<p>Your API key and secret will be used to authenticate with MtGox's servers. This is achieved via the use of two HTTP headers: <code>Rest-Key</code> and <code>Rest-Sign</code></p>
+<p><code>Rest-Key</code> is your API key, <code>Rest-Sign</code> is an HMAC hash constructed from your API secret, your API method path, your post data, and uses the SHA-512 algorithm. The <code>Rest-Sign</code> is constructed as follows:</p>
+<ul>
+<li>Your API secret has been base-64 encoded, decode it</li>
+<li>Join your method path, the NULL <code>\0</code> character, and your post data into a string</li>
+<li>Generate an HMAC hash string, using your decoded secret as the secret, SHA-512 as the hash function, and your constructed string as the message</li>
+<li>Encode this HMAC string using base-64</li>
+</ul>
+<p>Here is an example python implementation of all the above:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">hmac</span><span class="o">,</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">hashlib</span><span class="o">,</span> <span class="nn">urllib2</span>
+<span class="n">base</span> <span class="o">=</span> <span class="s">'https://data.mtgox.com/api/2/'</span>
+
+<span class="k">def</span> <span class="nf">makereq</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">hash_data</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">data</span>
+    <span class="n">secret</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span>
+    <span class="n">sha512</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span>
+    <span class="n">hmac</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">hash_data</span><span class="p">,</span> <span class="n">sha512</span><span class="p">))</span>
+
+    <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'User-Agent'</span><span class="p">:</span> <span class="s">'My-First-Trade-Bot'</span><span class="p">,</span>
+        <span class="s">'Rest-Key'</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
+        <span class="s">'Rest-Sign'</span><span class="p">:</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="p">),</span>
+        <span class="s">'Accept-encoding'</span><span class="p">:</span> <span class="s">'GZIP'</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
+</pre></div>
+
+
+<p>You can then perform the request with the following:</p>
+<div class="codehilite"><pre><span class="n">post_data</span> <span class="o">=</span> <span class="s">'nonce=123'</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">makreq</span><span class="p">(</span><span class="s">'abc123..'</span><span class="p">,</span> <span class="s">'aBc7/+..'</span><span class="p">,</span> <span class="s">'BTCUSD/money/ticker'</span><span class="p">,</span> <span class="n">post_data</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">post_data</span><span class="p">)</span>
+<span class="c"># if gzip encoding, decode</span>
+<span class="c"># try to decode json into dictionary</span>
+<span class="c"># raise exception if response contains error key</span>
+</pre></div>
+
+
+<p><strong>N.B.</strong> if you choose to include <code>GZIP</code> as an accepted encoding, you will have to check if the content-encoding of the response is <code>'gzip'</code>, and will then have to decode it.</p>
+<h3 id="markdown-header-requests">Requests</h3>
+<p>Each request consists of a path, any arguments, and a nonce value. The different methods you can use are defined by their paths and the arguments they accept. The path is the part of the HTTP URL after the base.</p>
+<p><strong>Base</strong>: <a href="https://data.mtgox.com/api/2/">https://data.mtgox.com/api/2/</a>   <br>
+<strong>Path</strong>: <a href="https://data.mtgox.com/api/2/BTCUSD/money/ticker">BTCUSD/money/ticker</a></p>
+<p>The nonce value is important to prevent duplicated requests. In short, each request should be accompanied by a unique nonce value in the post data, and this value should be an integer and larger than any value sent previously. One way to accomplish this is by using millisecond or microsecond unix time, e.g. if your computer supports microsecond resolution:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="k">def</span> <span class="nf">nonce</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">))</span>
+</pre></div>
+
+
+<p>This should be added to your argument list, and then submitted using url form encoding, i.e.:</p>
+<div class="codehilite"><pre><span class="n">nonce</span><span class="o">=</span><span class="mi">123</span><span class="o">&amp;</span><span class="n">type</span><span class="o">=</span><span class="n">bid</span><span class="o">&amp;</span><span class="n">amount_int</span><span class="o">=</span><span class="mi">765000000</span><span class="o">&amp;</span><span class="n">price_int</span><span class="o">=</span><span class="mi">6061000</span>
+</pre></div>
+
+
+<p>Some requests don't need any post data or HMAC authentication, such as the BTCUSD/money/ticker example used, and can be easily obtained in a web browser, but in general, you should always authenticate with a valid API key, and make sure that the key has the necessary rights.</p>
+<p>Note that the API will ignore any extraneous arguments.</p>
+<h2 id="markdown-header-methods">Methods</h2>
+<p><strong>Disclaimer:</strong> Official documentation for the methods below, at the time of writing, is limited or even non-existent, and the following information has been pooled from multiple sources, found by trial and error, or extrapolated. No responsibility is taken by the author for any incorrect or incomplete information, nor for any unintended effects it may cause. <em>Use the information below at your own risk.</em></p>
+<hr>
+<p>Each of the methods described below consists of a table of key/value pairs if there are any, which are the known acceptable arguments, a sample request, and some brief notes.</p>
+<h3 id="markdown-header-glossary">Glossary</h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auxiliary currency</td>
+<td>The currency specified, other than <code>BTC</code>, e.g. the auxiliary currency for the pair <code>BTCUSD</code> would be <code>USD</code>.</td>
+</tr>
+<tr>
+<td>integer value</td>
+<td>A currency value given in terms of the minimum division, for example <code>$ 2.37</code> would be <code>237000</code>. See the currency section for more information. Note, that even though these values are <em>ostensibly</em> meant to be integers, sometimes a float may be returned, for example for small order quotes, so you should round these values if necessary.</td>
+</tr>
+<tr>
+<td>bid</td>
+<td>A <code>bid</code> order typically refers to a buy order for BTC using the auxiliary currency.</td>
+</tr>
+<tr>
+<td>ask</td>
+<td>An <code>ask</code> order typically refers to a sell order of BTC for the auxiliary currency.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="markdown-header-code">Code</h4>
+<p><code>**Currency Object**</code> refers to a JSON block of the form:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nt">"currency"</span><span class="p">:</span> <span class="s2">"BTC"</span><span class="p">,</span>
+    <span class="nt">"display"</span><span class="p">:</span> <span class="s2">"17.96800010\u00a0BTC"</span><span class="p">,</span>
+    <span class="nt">"display_short"</span><span class="p">:</span> <span class="s2">"17.97\u00a0BTC"</span><span class="p">,</span>
+    <span class="nt">"value"</span><span class="p">:</span> <span class="s2">"17.96800010"</span><span class="p">,</span>
+    <span class="nt">"value_int"</span><span class="p">:</span> <span class="s2">"1796800010"</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="markdown-header-contents">Contents</h4>
+<ul>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-money">money</a><ul>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyinfo">info</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyidkey">idkey</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyorders">orders</a></li>
+<li>order<ul>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyorderquote">quote</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyorderadd">add</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyordercancel">cancel</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyorderresult">result</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyorderlag">lag</a></li>
+</ul>
+</li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneycurrency">currency</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyticker">ticker</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyhotp_gen">hotp_gen</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyquote">quote</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneytrades">trades</a><ul>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneytradesfetch">fetch</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneytradescancelled">cancelled</a></li>
+</ul>
+</li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneycancelledtrades">cancelledtrades</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneydepth">depth</a><ul>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneydepthfetch">fetch</a></li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneydepthfull">full</a></li>
+</ul>
+</li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyfulldepth">fulldepth</a></li>
+</ul>
+</li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-security_1">security</a><ul>
+<li>hotp<ul>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-securityhotpgen">gen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-other-methods">others</a></li>
+</ul>
+<h3 id="markdown-header-money">Money</h3>
+<h4 id="markdown-header-moneyinfo"><code>money/info</code></h4>
+<p>This method provides a lot of information about your account, the example given below is not actual sample data (as this would be personally identifying!), but is a skeleton of the data you can expect:</p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/info</code> <br>
+<strong>Response:</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"Created"</span><span class="p">:</span> <span class="s2">"yyyy-mm-dd hh:mm:ss"</span><span class="p">,</span>
+        <span class="nt">"Id"</span><span class="p">:</span> <span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="nt">"Index"</span><span class="p">:</span> <span class="s2">"123"</span><span class="p">,</span>
+        <span class="nt">"Language"</span><span class="p">:</span> <span class="s2">"en_US"</span><span class="p">,</span>
+        <span class="nt">"Last_Login"</span><span class="p">:</span> <span class="s2">"yyyy-mm-dd hh:mm:ss"</span><span class="p">,</span>
+        <span class="nt">"Login"</span><span class="p">:</span> <span class="s2">"username"</span><span class="p">,</span>
+        <span class="nt">"Monthly_Volume"</span><span class="p">:</span>                   <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+        <span class="nt">"Rights"</span><span class="p">:</span> <span class="p">[</span><span class="err">'deposit'</span><span class="p">,</span> <span class="err">'get_info'</span><span class="p">,</span> <span class="err">'merchant'</span><span class="p">,</span> <span class="err">'trade'</span><span class="p">,</span> <span class="err">'withdraw'</span><span class="p">],</span>
+        <span class="nt">"Wallets"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"BTC"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">"Balance"</span><span class="p">:</span>                  <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Daily_Withdraw_Limit"</span><span class="p">:</span>     <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Max_Withdraw"</span><span class="p">:</span>             <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Monthly_Withdraw_Limit"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">"Open_Orders"</span><span class="p">:</span>              <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Operations"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="nt">"USD"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">"Balance"</span><span class="p">:</span>                  <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Daily_Withdraw_Limit"</span><span class="p">:</span>     <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Max_Withdraw"</span><span class="p">:</span>             <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Monthly_Withdraw_Limit"</span><span class="p">:</span>   <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Open_Orders"</span><span class="p">:</span>              <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+                <span class="nt">"Operations"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="nt">"JPY"</span><span class="p">:{</span><span class="err">...</span><span class="p">},</span> <span class="nt">"EUR"</span><span class="p">:{</span><span class="err">...</span><span class="p">},</span>
+            <span class="err">//</span> <span class="err">etc,</span> <span class="err">depends</span> <span class="err">what</span> <span class="err">wallets</span> <span class="err">you</span> <span class="err">have</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="nt">"result"</span><span class="p">:</span> <span class="s2">"success"</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>As of writing, I do not have any open orders, so I cannot be sure of whether <code>Open_Orders</code> will be an array or have a different structure if you do have them or not, so it may be worth experimenting to see what happens if this is crucial to your application.</li>
+<li>You do not need to include a currency for this method</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyidkey"><code>money/idkey</code></h4>
+<p>Returns an <code>idKey</code> used to subscribe to a user's private updates in the websocket API<sup id="fnref:1"><a class="footnote-ref" href="https://bitbucket.org/nitrous/mtgox-api/overview#fn:1" rel="footnote">1</a></sup>. The key is valid for 24 hours. Without any arguments, it will return your personal <code>idKey</code>, there does not appear to be a way to obtain other user's keys, and this may be intentional in order to protect their privacy.</p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/idkey</code> <br>
+<strong>Response:</strong> <code>{"result":"success","data":"abc+\123=.."}</code></p>
+<ul>
+<li>You do not need to include a currency for this method</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyorders"><code>money/orders</code></h4>
+<p>Get information on your current orders</p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/orders</code> <br>
+<strong>Response:</strong> <code>{"result":"success","data":[]}</code></p>
+<ul>
+<li>Again, I have no open orders to test here, however they may have the following format (you should verify this first before implementing as such):</li>
+</ul>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nt">"oid"</span><span class="p">:</span> <span class="s2">"abc123-def456-.."</span><span class="p">,</span>
+    <span class="nt">"currency"</span><span class="p">:</span> <span class="s2">"USD"</span><span class="p">,</span>
+    <span class="nt">"item"</span><span class="p">:</span> <span class="s2">"BTC"</span><span class="p">,</span>
+    <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"ask"</span><span class="p">,</span>
+    <span class="nt">"status"</span><span class="p">:</span> <span class="s2">"open"</span><span class="p">,</span>
+    <span class="nt">"date"</span><span class="p">:</span> <span class="s2">"1364691201"</span><span class="p">,</span>
+    <span class="nt">"priority"</span><span class="p">:</span> <span class="s2">"1364691201933187"</span><span class="p">,</span>
+    <span class="nt">"actions"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">"amount"</span><span class="p">:</span>         <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+    <span class="nt">"valid-amount"</span><span class="p">:</span>   <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+    <span class="nt">"invalid-amount"</span><span class="p">:</span> <span class="err">**Currency</span> <span class="err">Object**</span><span class="p">,</span>
+    <span class="nt">"price"</span><span class="p">:</span>          <span class="err">**Currency</span> <span class="err">Object**</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>The <code>valid-amount</code> is the amount of the transaction currently funded, the <code>invalid-amount</code> is that which is unfunded, and the <code>amount</code> is the total of these</li>
+<li>Statuses may be: <code>pending</code>, <code>executing</code>, <code>post-pending</code>, <code>open</code>, <code>stop</code>, and <code>invalid</code></li>
+<li>It seems priority is a unix timestamp with microsecond precision</li>
+<li>You do not need to include a currency for this method</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneycurrency"><code>money/currency</code></h4>
+<p>Get information for a given currency</p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/currency</code> <br>
+<strong>Response:</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nt">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span>
+        <span class="nt">"name"</span><span class="p">:</span><span class="s2">"Dollar"</span><span class="p">,</span>
+        <span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"$"</span><span class="p">,</span>
+        <span class="nt">"decimals"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span>
+        <span class="nt">"display_decimals"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span>
+        <span class="nt">"symbol_position"</span><span class="p">:</span><span class="s2">"before"</span><span class="p">,</span>
+        <span class="nt">"virtual"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span>
+        <span class="nt">"ticker_channel"</span><span class="p">:</span><span class="s2">"abc123-def456"</span><span class="p">,</span>
+        <span class="nt">"depth_channel"</span><span class="p">:</span><span class="s2">"abc123-def456"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>There does not seem to be a way to get similar information for BTC using this API</li>
+<li>The most important parts of this data is available in the currency section above, however it may be useful to use this method if you think the information may change</li>
+<li>You may also need this data if you don't want to hard code the way you display currencies, or if you wish to track the currency using the websocket API<sup id="fnref:1"><a class="footnote-ref" href="https://bitbucket.org/nitrous/mtgox-api/overview#fn:1" rel="footnote">1</a></sup>.</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyticker"><code>money/ticker</code></h4>
+<p>Get the most recent information for a currency pair</p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/ticker</code> <br>
+<strong>Response:</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nt">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"high"</span><span class="p">:</span>       <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"low"</span><span class="p">:</span>        <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"avg"</span><span class="p">:</span>        <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"vwap"</span><span class="p">:</span>       <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"vol"</span><span class="p">:</span>        <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">BTC**</span><span class="p">,</span>
+        <span class="nt">"last_local"</span><span class="p">:</span> <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"last_orig"</span><span class="p">:</span>  <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">???**</span><span class="p">,</span>
+        <span class="nt">"last_all"</span><span class="p">:</span>   <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"last"</span><span class="p">:</span>       <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"buy"</span><span class="p">:</span>        <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"sell"</span><span class="p">:</span>       <span class="err">**Currency</span> <span class="err">Object</span> <span class="err">-</span> <span class="err">USD**</span><span class="p">,</span>
+        <span class="nt">"now"</span><span class="p">:</span>        <span class="s2">"1364689759572564"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li><code>vwap</code> is the <a href="http://en.wikipedia.org/wiki/Volume-weighted_average_price">volume-weighted average price</a></li>
+<li><code>last_local</code> is the last trade in your selected auxiliary currency</li>
+<li><code>last_orig</code> is the last trade (any currency)</li>
+<li><code>last_all</code> is that last trade converted to the auxiliary currency</li>
+<li><code>last</code> is the same as <code>last_all</code></li>
+<li><code>now</code> is the unix timestamp, but with a resolution of 1 microsecond</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyhotp_gen"><code>money/hotp_gen</code></h4>
+<p>Deprecated - Use <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-securityhotpgen"><code>security/hotp/gen</code></a></p>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyquote"><code>money/quote</code></h4>
+<p>Deprecated - Use <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneyorderquote"><code>money/order/quote</code></a></p>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneytrades"><code>money/trades</code></h4>
+<p>Deprecated - Use <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneytradesfetch"><code>money/trades/fetch</code></a></p>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneycancelledtrades"><code>money/cancelledtrades</code></h4>
+<p>Deprecated - Use <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneytradescancelled"><code>money/trades/cancelled</code></a></p>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneydepth"><code>money/depth</code></h4>
+<p>Deprecated - Use <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneydepthfetch"><code>money/depth/fetch</code></a></p>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyfulldepth"><code>money/fulldepth</code></h4>
+<p>Deprecated - Use <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneydepthfull"><code>money/depth/full</code></a></p>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<hr>
+<h4 id="markdown-header-moneyorderquote"><code>money/order/quote</code></h4>
+<p>Get an up-to-date quote for a bid or ask transaction</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>bid</code> or <code>ask</code></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>amount of BTC to buy or sell, as an integer</td>
+</tr>
+</tbody>
+</table>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/order/quote</code> ~ <code>type=bid&amp;amount=100000000</code> <br>
+<strong>Response:</strong> <code>{"result":"success","data":{"amount":9197999}}</code></p>
+<p>2 <strong>Request:</strong> <code>BTCUSD/money/order/quote</code> ~ <code>type=ask&amp;amount=23769001</code> <br>
+<strong>Response:</strong> <code>{"result":"success","data":{"amount":2179142.24937}}</code></p>
+<ul>
+<li>This method differs from most, as the currency values are <em>always</em> given as integers</li>
+<li>As noted in the glossary, the api isn't strict about giving integers, see the second example - the quote for selling <code>0.23769001 BTC</code> is given as <code>$ 21.7914224937</code>, more digits than are expected for a USD value, so you may need to round this data to the nearest integer</li>
+<li>Regardless of whether your order is <code>bid</code> or <code>ask</code>, your input should be the quantity of bitcoins and the response will be in the auxiliary currency </li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyorderadd"><code>money/order/add</code></h4>
+<p>Creates a currency trade order</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>bid</code> or <code>ask</code></td>
+</tr>
+<tr>
+<td>amount_int</td>
+<td>amount of BTC to buy or sell, as an integer</td>
+</tr>
+<tr>
+<td>price_int</td>
+<td>The price per bitcoin in the auxiliary currency, as an integer, optional if you wish to trade at the market price</td>
+</tr>
+<tr>
+<td><em>amount</em></td>
+<td>Deprecated - Use <code>amount_int</code></td>
+</tr>
+<tr>
+<td><em>price</em></td>
+<td>Deprecated - Use <code>price_int</code></td>
+</tr>
+</tbody>
+</table>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/order/add</code> ~ <code>type=bid&amp;amount_int=50000000&amp;price_int=9250000</code> <br>
+<strong>Response:</strong> </p>
+<ul>
+<li>The amount is always given in BTC</li>
+<li>Price is always in the auxiliary currency, and is per bitcoin</li>
+<li>If you omit the price, your trade will be treated as a market order, and completed at the current market price</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyordercancel"><code>money/order/cancel</code></h4>
+<p>Cancel a trade order</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>order</td>
+<td>The <code>id</code> of the order you wish to cancel</td>
+</tr>
+</tbody>
+</table>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/order/cancel</code> ~ <code>order=</code> <br>
+<strong>Response:</strong></p>
+<ul>
+<li>It appear that you do not need to specify what type of order you are cancelling, just the <code>id</code></li>
+<li>It goes without saying that you cannot cancel an order that has already completed</li>
+<li>You <em>may</em>, however, be able to cancel a partially completed order, I am not sure though</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyorderresult"><code>money/order/result</code></h4>
+<p>Get information on a trade order</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>bid</code> or <code>ask</code></td>
+</tr>
+<tr>
+<td>order</td>
+<td>The <code>id</code> of the order</td>
+</tr>
+</tbody>
+</table>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/order/result</code> ~ <code>type=&amp;order=</code> <br>
+<strong>Response:</strong></p>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneyorderlag"><code>money/order/lag</code></h4>
+<p>Returns the lag time for executing orders in microseconds</p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/order/lag</code> <br>
+<strong>Response:</strong> <code>{"result":"success","data":{"lag":2319790,"lag_secs":2.31979,"lag_text":"2.31979 seconds"}}</code></p>
+<ul>
+<li>If the MtGox trade queue is empty, the lag time will be 0</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<hr>
+<h4 id="markdown-header-moneytradesfetch"><code>money/trades/fetch</code></h4>
+<p>Gets up to 24 hours of trades beginning from the date specified</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>since</td>
+<td>The unix timestamp (in microseconds) from which to fetch the trades; this is optional, if omitted, the most recent 24 hours of trades will be returned</td>
+</tr>
+</tbody>
+</table>
+<p><em>Time now is 1364767250</em></p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/trades/fetch</code> ~ <code>since=1364767190000000</code> <br>
+<strong>Response:</strong> </p>
+<div class="codehilite"><pre><span class="p">{</span><span class="nt">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:[</span>
+    <span class="p">{</span><span class="nt">"date"</span><span class="p">:</span><span class="mi">1364767201</span><span class="p">,</span><span class="nt">"price"</span><span class="p">:</span><span class="s2">"92.65"</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"0.47909825"</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"9265000"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"47909825"</span><span class="p">,</span><span class="nt">"tid"</span><span class="p">:</span><span class="s2">"1364767201381791"</span><span class="p">,</span><span class="nt">"price_currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="nt">"item"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="nt">"trade_type"</span><span class="p">:</span><span class="s2">"bid"</span><span class="p">,</span><span class="nt">"primary"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="nt">"properties"</span><span class="p">:</span><span class="s2">"limit"</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">"date"</span><span class="p">:</span><span class="mi">1364767207</span><span class="p">,</span><span class="nt">"price"</span><span class="p">:</span><span class="s2">"92.65"</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"0.01024284"</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"9265000"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"1024284"</span><span class="p">,</span><span class="nt">"tid"</span><span class="p">:</span><span class="s2">"1364767207406066"</span><span class="p">,</span><span class="nt">"price_currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="nt">"item"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="nt">"trade_type"</span><span class="p">:</span><span class="s2">"bid"</span><span class="p">,</span><span class="nt">"primary"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="nt">"properties"</span><span class="p">:</span><span class="s2">"limit"</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">"date"</span><span class="p">:</span><span class="mi">1364767232</span><span class="p">,</span><span class="nt">"price"</span><span class="p">:</span><span class="s2">"92.65"</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"1.25637797"</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"9265000"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"125637797"</span><span class="p">,</span><span class="nt">"tid"</span><span class="p">:</span><span class="s2">"1364767232522802"</span><span class="p">,</span><span class="nt">"price_currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="nt">"item"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="nt">"trade_type"</span><span class="p">:</span><span class="s2">"bid"</span><span class="p">,</span><span class="nt">"primary"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="nt">"properties"</span><span class="p">:</span><span class="s2">"limit"</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">"date"</span><span class="p">:</span><span class="mi">1364767236</span><span class="p">,</span><span class="nt">"price"</span><span class="p">:</span><span class="s2">"92.65"</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"9265000"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"1000000"</span><span class="p">,</span><span class="nt">"tid"</span><span class="p">:</span><span class="s2">"1364767236979043"</span><span class="p">,</span><span class="nt">"price_currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="nt">"item"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="nt">"trade_type"</span><span class="p">:</span><span class="s2">"bid"</span><span class="p">,</span><span class="nt">"primary"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="nt">"properties"</span><span class="p">:</span><span class="s2">"limit"</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">"date"</span><span class="p">:</span><span class="mi">1364767245</span><span class="p">,</span><span class="nt">"price"</span><span class="p">:</span><span class="s2">"92.65"</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"9265000"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"1000000"</span><span class="p">,</span><span class="nt">"tid"</span><span class="p">:</span><span class="s2">"1364767245879648"</span><span class="p">,</span><span class="nt">"price_currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="nt">"item"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="nt">"trade_type"</span><span class="p">:</span><span class="s2">"bid"</span><span class="p">,</span><span class="nt">"primary"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="nt">"properties"</span><span class="p">:</span><span class="s2">"limit"</span><span class="p">}</span>
+<span class="p">]}</span>
+</pre></div>
+
+
+<ul>
+<li>In the above example, as the since date was 60s ago, only 60s of trades were returned</li>
+<li>If you wish to obtain <em>all</em> trade data, first fetch trades since 0, then continue fetching trades, using the date of the last fetched trade</li>
+<li>If there is no last trade (due to no trades happening in a 24 hour period), try adding 86400000000 microseconds to advance the window manually</li>
+<li>Make sure to remove duplicate trades that may lie on the fetch window boundary</li>
+<li>The <code>primary</code> field specifies whether the trade was originally ordered in the given currency - since trades may appear on multiple tickers, you may need to ignore trades with <code>primary: 'N'</code> values</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneytradescancelled"><code>money/trades/cancelled</code></h4>
+<p>Get a list of cancelled trades, supposedly from the last month</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>since</em></td>
+<td>It has been assumed that this method may share the same <code>since</code> argument as <code>money/trades/fetch</code> does, and this should work in a similar way</td>
+</tr>
+</tbody>
+</table>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/trades/cancelled</code> <br>
+<strong>Response:</strong> <code>{"result":"success","data":[]}</code></p>
+<ul>
+<li>As far as I can tell, no trade has ever been cancelled, at least for the <code>BTCUSD</code> currency pair, as repeatedly calling this API method with <code>since</code> values ranging from the first ever trade to March 31st, 2013, yielded no results</li>
+<li>This may also be because the <code>since</code> argument may not actually be valid</li>
+<li>For this reason, it is unclear what the response would look like when there are cancelled trades present</li>
+<li>It is likely that they will share the same format as in <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneytradesfetch"><code>money/trades/fetch</code></a></li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<hr>
+<h4 id="markdown-header-moneydepthfetch"><code>money/depth/fetch</code></h4>
+<p>Gets recent depth information</p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/depth/fetch</code> <br>
+<strong>Response:</strong></p>
+<div class="codehilite"><pre><span class="p">{</span><span class="nt">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span>
+    <span class="nt">"asks"</span><span class="p">:[</span><span class="err">...</span><span class="p">],</span>
+    <span class="nt">"bids"</span><span class="p">:[</span><span class="err">...</span><span class="p">],</span>
+    <span class="nt">"filter_min_price"</span><span class="p">:{</span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"83.48403"</span><span class="p">,</span><span class="nt">"value_int"</span><span class="p">:</span><span class="s2">"8348403"</span><span class="p">,</span><span class="nt">"display"</span><span class="p">:</span><span class="s2">"$83.48403"</span><span class="p">,</span><span class="nt">"display_short"</span><span class="p">:</span><span class="s2">"$83.48"</span><span class="p">,</span><span class="nt">"currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">},</span>
+    <span class="nt">"filter_max_price"</span><span class="p">:{</span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"102.03603"</span><span class="p">,</span><span class="nt">"value_int"</span><span class="p">:</span><span class="s2">"10203603"</span><span class="p">,</span><span class="nt">"display"</span><span class="p">:</span><span class="s2">"$102.03603"</span><span class="p">,</span><span class="nt">"display_short"</span><span class="p">:</span><span class="s2">"$102.04"</span><span class="p">,</span><span class="nt">"currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">}</span>
+<span class="p">}}</span>
+</pre></div>
+
+
+<ul>
+<li>The above data ranges from 1359589420235069 (Wed, 30 Jan 2013 23:43:40 GMT) to 1364770856550122 (Sun, 31 Mar 2013 23:00:57 GMT)</li>
+<li>Even though this data is about 6 times smaller than <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneydepthfull"><code>money/depth/full</code></a>, it is still very big, so it is possible that excessive requests will also result in banning</li>
+<li>There are 852 bids and 839 asks in the above example</li>
+<li>Refer to <a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-moneydepthfull"><code>money/depth/full</code></a> for detail on the ask and bid formats</li>
+<li>There is probably an argument that can be used to limit the amount of data returned, however it is currently unknown</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<h4 id="markdown-header-moneydepthfull"><code>money/depth/full</code></h4>
+<p>Gets a complete copy of MtGox's full depth data</p>
+<p>1 <strong>Request:</strong> <code>BTCUSD/money/depth/full</code> <br>
+<strong>Response:</strong> </p>
+<div class="codehilite"><pre><span class="p">{</span><span class="nt">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span>
+    <span class="nt">"asks"</span><span class="p">:[</span>
+        <span class="p">{</span><span class="nt">"price"</span><span class="p">:</span><span class="mf">93.06545</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="mf">0.07284541</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"9306545"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"7284541"</span><span class="p">,</span><span class="nt">"stamp"</span><span class="p">:</span><span class="s2">"1364769641591046"</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">"price"</span><span class="p">:</span><span class="mf">93.06546</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="mf">0.81618662</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"9306546"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"81618662"</span><span class="p">,</span><span class="nt">"stamp"</span><span class="p">:</span><span class="s2">"1364769116973406"</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">"price"</span><span class="p">:</span><span class="mf">93.4</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="mf">0.02</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"9340000"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"2000000"</span><span class="p">,</span><span class="nt">"stamp"</span><span class="p">:</span><span class="s2">"1364769080120861"</span><span class="p">},</span>
+        <span class="err">...</span>
+    <span class="p">],</span>
+    <span class="nt">"bids"</span><span class="p">:[</span>
+        <span class="p">{</span><span class="nt">"price"</span><span class="p">:</span><span class="mf">1.0e-5</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="mf">30694957.01</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"3069495700999999"</span><span class="p">,</span><span class="nt">"stamp"</span><span class="p">:</span><span class="s2">"1364764907440546"</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">"price"</span><span class="p">:</span><span class="mf">2.0e-5</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="mf">10000.02</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"1000002000000"</span><span class="p">,</span><span class="nt">"stamp"</span><span class="p">:</span><span class="s2">"1364418775588024"</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">"price"</span><span class="p">:</span><span class="mf">3.0e-5</span><span class="p">,</span><span class="nt">"amount"</span><span class="p">:</span><span class="mf">41515.8015</span><span class="p">,</span><span class="nt">"price_int"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="nt">"amount_int"</span><span class="p">:</span><span class="s2">"4151580150000"</span><span class="p">,</span><span class="nt">"stamp"</span><span class="p">:</span><span class="s2">"1364225564960621"</span><span class="p">},</span>
+        <span class="err">...</span>
+    <span class="p">]</span>
+<span class="p">}}</span>
+</pre></div>
+
+
+<ul>
+<li>This file can be at least as big as 1MB, and so there is a rate limit of up to 5 requests per hour, if you exceed this you risk being banned</li>
+<li>The example above contained 7671 bids and 1929 asks</li>
+<li>The date range was from 1309117574539900 (Sun, 26 Jun 2011 19:46:15 GMT) to 1364769659729678 (Sun, 31 Mar 2013 22:41:00 GMT)</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<hr>
+<h3 id="markdown-header-security_1">Security</h3>
+<p><strong>This category does not require the use of a currency pair</strong></p>
+<h4 id="markdown-header-securityhotpgen"><code>security/hotp/gen</code></h4>
+<p>Generates a new HOTP key, what this is used for is unclear, though it may have some use for application developers</p>
+<p>1 <strong>Request:</strong> <code>security/hotp/gen</code> <br>
+<strong>Response:</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nt">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"serial"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span>
+        <span class="nt">"name"</span><span class="p">:</span><span class="s2">"OTP#123"</span><span class="p">,</span>
+        <span class="nt">"key"</span><span class="p">:</span><span class="s2">"abc456"</span><span class="p">,</span>
+        <span class="nt">"key_base32"</span><span class="p">:</span><span class="s2">"ABC789"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<hr>
+<h3 id="markdown-header-other-methods">Other methods</h3>
+<p>The following methods have yet to be documented. They mainly revolve around bank management, merchant transactions, and direct bitcoin transfers. Any known arguments are listed below each relevant method.</p>
+<ul>
+<li><strong>Manage registered bank accounts</strong><ul>
+<li><code>money/bank/register</code></li>
+<li><code>money/bank/list</code>:<ul>
+<li><em>no arguments</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Japanese banks</strong><ul>
+<li><code>money/japan/lookup_bank</code></li>
+<li><code>money/japan/lookup_branch</code></li>
+</ul>
+</li>
+<li><strong>Deal directly with bitcoins</strong><ul>
+<li><code>money/bitcoin/addpriv</code>:<ul>
+<li><code>keytype</code></li>
+<li><code>key</code></li>
+<li><code>description</code></li>
+<li><code>raw</code></li>
+<li><code>sha256</code></li>
+<li><code>auto</code></li>
+</ul>
+</li>
+<li><code>money/bitcoin/address</code>:<ul>
+<li><code>description</code></li>
+<li><code>ipn</code></li>
+</ul>
+</li>
+<li><code>money/bitcoin/wallet_add</code>:<ul>
+<li><code>wallet</code></li>
+</ul>
+</li>
+<li><code>money/bitcoin/send_simple</code>:<ul>
+<li><code>address</code></li>
+<li><code>amonut_int</code></li>
+<li><code>fee_int</code></li>
+<li><code>no_instant</code></li>
+<li><code>green</code></li>
+</ul>
+</li>
+<li><code>money/bitcoin/null</code></li>
+<li><code>money/bitcoin/block_list_tx</code></li>
+<li><code>money/bitcoin/tx_details</code></li>
+<li><code>money/bitcoin/addr_details</code></li>
+<li><code>money/bitcoin/vanity_lookup</code></li>
+</ul>
+</li>
+<li><strong>Bitinstant transactions</strong><ul>
+<li><code>money/bitinstant/quote</code></li>
+<li><code>money/bitinstant/fee</code></li>
+</ul>
+</li>
+<li><strong>Merchant transactions</strong><ul>
+<li><code>money/merchant/order/create</code></li>
+<li><code>money/merchant/order/pay</code></li>
+<li><code>money/merchant/order/details</code></li>
+<li><code>money/merchant/order/payment</code></li>
+<li><code>money/merchant/pos/order/create</code></li>
+<li><code>money/merchant/pos/order/close</code></li>
+<li><code>money/merchant/pos/order/get</code></li>
+<li><code>money/merchant/pos/order/add_product</code></li>
+<li><code>money/merchant/pos/order/edit_product</code></li>
+<li><code>money/merchant/product/add</code></li>
+<li><code>money/merchant/product/del</code></li>
+<li><code>money/merchant/product/get</code></li>
+<li><code>money/merchant/product/edit</code></li>
+</ul>
+</li>
+<li><strong>Misc</strong><ul>
+<li><code>money/code/list</code></li>
+<li><code>money/code/redeem</code></li>
+<li><code>money/swift/details</code></li>
+<li><code>money/ticket/create</code>:<ul>
+<li><code>currency</code></li>
+<li><code>amount_int</code></li>
+<li><code>partner</code></li>
+</ul>
+</li>
+<li><code>money/token/process</code></li>
+<li><code>money/wallet/history</code>:<ul>
+<li><code>currency</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://bitbucket.org/nitrous/mtgox-api/overview#markdown-header-contents">^ Back to contents</a></p>
+<hr>
+<p>Tips and donations: <code>1VvKzcFibZdMyQdbXpSYcyoYvBsLLodDa</code></p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>https://en.bitcoin.it/wiki/MtGox/API/Streaming&nbsp;<a class="footnote-backref" href="https://bitbucket.org/nitrous/mtgox-api/overview#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+                  </article>
+                
+              </section>
+            
+          
+        
+        <section id="repo-activity">
+          <h1>
+            Recent activity
+            <a href="https://bitbucket.org/nitrous/mtgox-api/rss" class="rss"><img src="./nitrous   MtGox API — Bitbucket_files/rss.png" alt="RSS feed for MtGox API" title="RSS feed for MtGox API"></a>
+          </h1>
+          
+            
+              
+                
+
+
+   
+
+
+<div class="newsfeed">
+  
+    
+      
+        
+          
+            
+            
+            
+              
+                
+                  
+
+            <article class="news-item start_follow_repo">
+              <span class="icon start_follow_repo"></span>
+              
+
+
+  <a href="https://bitbucket.org/aimget"><img alt="aimget" src="./nitrous   MtGox API — Bitbucket_files/fcc6cc88d48a18169b34d13d3704d6e7" class="avatar avatar32"></a>
+
+
+              
+              <p>
+
+  <a href="https://bitbucket.org/aimget">aimget</a>
+ began following 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+</p>
+    
+    
+              <time datetime="2013-04-03T21:30:21-07:00">an hour ago</time>
+    
+
+                
+              
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              </article>
+            
+            
+            
+              
+                
+            
+              <article class="news-item commit">
+                <span class="icon commit"></span>
+                
+
+
+  <a href="https://bitbucket.org/nitrous"><img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32"></a>
+
+
+                <p>
+                  
+
+  <a href="https://bitbucket.org/nitrous">nitrous</a>
+
+                  pushed 1 commit to 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+
+                </p>
+                <time datetime="2013-04-02T07:06:31-07:00">yesterday</time>
+                
+                  <div class="changeset">
+                  <a href="https://bitbucket.org/nitrous/mtgox-api/commits/9c42792de996ba339b2ef5e631dc7677b8943b3e" class="changeset-hash">9c42792</a>
+                  -
+                  
+                    
+                      Added link to my forum post for feedback
+                    
+                  
+                  </div>
+                
+                
+              </article>
+            
+
+              
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              
+                
+            
+              <article class="news-item commit">
+                <span class="icon commit"></span>
+                
+
+
+  <a href="https://bitbucket.org/nitrous"><img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32"></a>
+
+
+                <p>
+                  
+
+  <a href="https://bitbucket.org/nitrous">nitrous</a>
+
+                  pushed 1 commit to 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+
+                </p>
+                <time datetime="2013-04-01T14:46:10-07:00">2 days ago</time>
+                
+                  <div class="changeset">
+                  <a href="https://bitbucket.org/nitrous/mtgox-api/commits/09f5997ce38fb70e5f299211d7d5204beacde700" class="changeset-hash">09f5997</a>
+                  -
+                  
+                    
+                      Fixed a typo
+                    
+                  
+                  </div>
+                
+                
+              </article>
+            
+
+              
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              
+                
+            
+              <article class="news-item commit">
+                <span class="icon commit"></span>
+                
+
+
+  <a href="https://bitbucket.org/nitrous"><img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32"></a>
+
+
+                <p>
+                  
+
+  <a href="https://bitbucket.org/nitrous">nitrous</a>
+
+                  pushed 1 commit to 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+
+                </p>
+                <time datetime="2013-04-01T14:28:55-07:00">2 days ago</time>
+                
+                  <div class="changeset">
+                  <a href="https://bitbucket.org/nitrous/mtgox-api/commits/12286db1ad396191179260803ebe6e61cda9f92a" class="changeset-hash">12286db</a>
+                  -
+                  
+                    
+                      Made the documentation the README for the project
+                    
+                  
+                  </div>
+                
+                
+              </article>
+            
+
+              
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              
+            
+            
+            
+              
+                
+                  
+
+            <article class="news-item strip">
+              <span class="icon strip"></span>
+              
+
+
+  <a href="https://bitbucket.org/nitrous"><img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32"></a>
+
+
+              
+              <p>
+
+  <a href="https://bitbucket.org/nitrous">nitrous</a>
+ stripped <span class="changeset-hash">e3814b2</span> from 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+</p>
+              
+    
+    
+              <time datetime="2013-04-01T14:27:10-07:00">2 days ago</time>
+    
+
+                
+              
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              
+              
+                
+                  </article>
+                
+                
+
+            <article class="news-item strip">
+              <span class="icon strip"></span>
+              
+
+
+  <a href="https://bitbucket.org/nitrous"><img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32"></a>
+
+
+              
+              <p>
+
+  <a href="https://bitbucket.org/nitrous">nitrous</a>
+ stripped <span class="changeset-hash">5dd0b80</span> from 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+</p>
+              
+    
+    
+              <time datetime="2013-04-01T14:27:10-07:00">2 days ago</time>
+    
+
+              
+            
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              
+              
+                
+                  </article>
+                
+                
+
+            <article class="news-item strip">
+              <span class="icon strip"></span>
+              
+
+
+  <a href="https://bitbucket.org/nitrous"><img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32"></a>
+
+
+              
+              <p>
+
+  <a href="https://bitbucket.org/nitrous">nitrous</a>
+ stripped <span class="changeset-hash">5685cb3</span> from 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+</p>
+              
+    
+    
+              <time datetime="2013-04-01T14:27:10-07:00">2 days ago</time>
+    
+
+              
+            
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              </article>
+            
+            
+            
+              
+                
+            
+
+              
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              
+            
+            
+            
+              
+                
+                  
+
+            <article class="news-item strip">
+              <span class="icon strip"></span>
+              
+
+
+  <a href="https://bitbucket.org/nitrous"><img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32"></a>
+
+
+              
+              <p>
+
+  <a href="https://bitbucket.org/nitrous">nitrous</a>
+ stripped <span class="changeset-hash">182da2f</span> from 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+</p>
+              
+    
+    
+              <time datetime="2013-04-01T14:27:10-07:00">2 days ago</time>
+    
+
+                
+              
+            
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+              
+              
+                
+                  </article>
+                
+                
+
+            <article class="news-item strip">
+              <span class="icon strip"></span>
+              
+
+
+  <a href="https://bitbucket.org/nitrous"><img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32"></a>
+
+
+              
+              <p>
+
+  <a href="https://bitbucket.org/nitrous">nitrous</a>
+ stripped <span class="changeset-hash">6087ce9</span> from 
+
+
+<a href="https://bitbucket.org/nitrous/mtgox-api" title="nitrous/mtgox-api">nitrous/MtGox API</a>
+
+</p>
+              
+    
+    
+              <time datetime="2013-04-01T14:27:10-07:00">2 days ago</time>
+    
+
+              
+            
+            
+          
+          
+            </article>
+          
+        
+      
+    
+  
+</div>
+
+
+
+              
+            
+          
+        </section>
+      </div>
+
+      <div class="column">
+        
+
+
+
+        <section id="repo-stats">
+          
+<div class="clone-url">
+  <div class="aui-buttons">
+    <a href="https://bitbucket.org/nitrous/mtgox-api.git" class="aui-button aui-style aui-dropdown2-trigger" aria-haspopup="true" aria-owns="clone-url-dropdown-overview">
+      <span class="dropdown-text">HTTPS</span>
+    </a>
+    <div id="clone-url-dropdown-overview" class="aui-dropdown2 aui-style-default">
+      <ul class="aui-list-truncate">
+        <li>
+          <a href="https://bitbucket.org/nitrous/mtgox-api.git" data-command="https://bitbucket.org/nitrous/mtgox-api.git" class="item-link https">HTTPS
+          </a>
+        </li>
+        <li>
+          <a href="ssh://git@bitbucket.org/nitrous/mtgox-api.git" data-command="git@bitbucket.org:nitrous/mtgox-api.git" class="item-link ssh">SSH
+          </a>
+        </li>
+      </ul>
+    </div>
+    <input type="text" readonly="readonly" value="https://bitbucket.org/nitrous/mtgox-api.git">
+  </div>
+  
+</div>
+
+
+          <ul class="stats">
+            
+              <li class="branches">
+                <a href="https://bitbucket.org/nitrous/mtgox-api/overview#branches" id="branches-dialog-trigger">
+                  
+                    <span class="value">1</span> Branch
+                  
+                </a>
+              </li>
+              <li class="tags" id="tags-dialog-trigger">
+                <a href="https://bitbucket.org/nitrous/mtgox-api/overview#tags">
+                  
+                    <span class="value">0</span> Tags
+                  
+                </a>
+              </li>
+              <li class="forks" id="forks-dialog-trigger">
+                <a href="https://bitbucket.org/nitrous/mtgox-api/overview#forks">
+                  
+                    <span class="value">0</span> Forks
+                  
+                </a>
+              </li>
+            
+            <li class="followers">
+              <a href="https://bitbucket.org/nitrous/mtgox-api/overview#followers" id="followers-dialog-trigger">
+                
+                  <span class="value">2</span> Followers
+                
+              </a>
+            </li>
+          </ul>
+
+          <div class="tabbed-filter-widget repo-stats-dialog branches hidden" id="branches-dialog">
+            <div class="tabbed-filter">
+              <input placeholder="Filter branches" class="filter-box" autosave="branch-dropdown-2480958" type="text">
+            </div>
+            
+              <div class="tab-pane active-pane branches" id="branch-list">
+                <ol class="filter-list">
+                  <li class="empty-msg">No matching branches</li>
+                  
+                    <li class="comprev filter-item">
+                      <a href="https://bitbucket.org/nitrous/mtgox-api/commits/branch/master" title="Browse source of master">master</a>
+                      
+                    </li>
+                  
+                </ol>
+              </div>
+            
+          </div>
+
+          <div class="tabbed-filter-widget repo-stats-dialog tags hidden" id="tags-dialog">
+            <div class="tabbed-filter">
+              <input placeholder="Filter tags" class="filter-box" autosave="tag-dropdown-2480958" type="text">
+            </div>
+            <div class="tab-pane active-pane tags" id="tag-list">
+              <ol class="filter-list empty">
+                <li class="empty-msg">No matching tags</li>
+                
+              </ol>
+            </div>
+          </div>
+
+          <div class="tabbed-filter-widget repo-stats-dialog forks hidden" id="forks-dialog">
+            <div class="tabbed-filter">
+              <input placeholder="Filter forks" class="filter-box" autosave="fork-dropdown-2480958" type="text">
+            </div>
+            
+              <div class="tab-pane active-pane forks" id="fork-list">
+                <ol class="filter-list empty">
+                  <li class="empty-msg">No matching forks</li>
+                  
+                </ol>
+              </div>
+            
+          </div>
+
+          <div class="followers-dialog repo-stats-dialog hidden" id="followers-dialog">
+            <div id="followers-list" class="followers-list">
+              <ol>
+                <li class="empty-msg">No followers yet</li>
+                
+                  <li>
+                    <a href="https://bitbucket.org/aimget" title="aimget">
+                      <img alt="aimget" src="./nitrous   MtGox API — Bitbucket_files/fcc6cc88d48a18169b34d13d3704d6e7" class="avatar avatar32">
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a href="https://bitbucket.org/nitrous" title="nitrous">
+                      <img alt="nitrous" src="./nitrous   MtGox API — Bitbucket_files/ef2845d1d9405f943337f64ddbfedb3a" class="avatar avatar32">
+                    </a>
+                  </li>
+                
+                
+                  <li class="current-user hidden">
+                    <a href="https://bitbucket.org/nitrous/mtgox-api/overview#nrm" title="Anonymous">
+                      <img alt="" src="./nitrous   MtGox API — Bitbucket_files/user_blue.png" class="avatar avatar32">
+                    </a>
+                  </li>
+                
+              </ol>
+            </div>
+          </div>
+
+          <dl class="metadata">
+            <dt>Owner</dt>
+            <dd><a href="https://bitbucket.org/nitrous">nitrous</a></dd>
+
+            
+
+            <dt>Access level</dt>
+            <dd>Public</dd>
+
+            <dt>Type</dt>
+            <dd>Git</dd>
+
+            
+
+            <dt>Last updated</dt>
+            <dd><time datetime="2013-04-02T16:06:31.683892">2013-04-02</time></dd>
+
+            <dt>Created</dt>
+            <dd><time datetime="2013-04-01T22:28:16.027094">2013-04-01</time></dd>
+
+            <dt>Size</dt>
+            <dd>
+              121.9 KB
+              <a rel="nofollow" href="https://bitbucket.org/nitrous/mtgox-api/get/9c42792de996.zip">(download)</a>
+            </dd>
+            
+              
+            
+          </dl>
+        </section>
+        
+          
+            
+          
+        
+      </div>
+      <div class="clearfix"></div>
+    
+    
+    
+  </div>
+
+  
+
+  </div>
+  
+
+
+
+
+    </div>
+  </div>
+  <footer id="footer" role="contentinfo">
+    <section class="footer-body">
+      <ul>
+        <li><a href="http://blog.bitbucket.org/">Blog</a></li>
+        <li><a href="https://bitbucket.org/site/master/issues/new">Report a bug</a></li>
+        <li><a href="https://bitbucket.org/support">Support</a></li>
+        <li><a href="http://confluence.atlassian.com/display/BITBUCKET">Documentation</a></li>
+        <li><a href="http://confluence.atlassian.com/x/IYBGDQ">API</a></li>
+        <li><a href="http://groups.google.com/group/bitbucket-users">Forum</a></li>
+        <li><a href="http://status.bitbucket.org/">Server status</a></li>
+        <li><a href="http://www.atlassian.com/hosted/terms.jsp">Terms of service</a></li>
+        <li><a href="http://www.atlassian.com/about/privacy.jsp">Privacy policy</a></li>
+      </ul>
+      <ul>
+        
+          
+            <li>English</li>
+          
+        
+        <li><a href="http://git-scm.com/">Git 1.7.10.3</a></li>
+        <li><a href="http://mercurial.selenic.com/">Mercurial 2.2.2</a></li>
+        <li><a href="https://www.djangoproject.com/">Django 1.3.1</a></li>
+        <li><a href="http://www.python.org/">Python 2.7.3</a></li>
+        <li><a href="https://bitbucket.org/nitrous/mtgox-api/overview#">3f9a50e12253 / 0a8a7e292790 @ bitbucket21</a></li>
+      </ul>
+    </section>
+  </footer>
+  
+</div>
+
+<script type="text/javascript" src="./nitrous   MtGox API — Bitbucket_files/79671577d12c.js"></script><div class="aui-popup auto-height aui-dialog" id="invitation-dialog" style="margin-left: -240px; width: 480px; height: auto; z-index: 3002; display: none;"><div class="dialog-components"><h2 class="dialog-title">Send an invitation</h2><ul class="dialog-page-menu" style="max-height: 778px; display: none;"><li class="page-menu-item selected"><button class="item-button">Invite</button></li></ul><div class="dialog-page-body"><div class="dialog-panel-body panel-body" style="max-height: 738px;"><form class="aui invitation-form" id="general-invite-form" method="post" novalidate="" style=""><div class="error aui-message hidden"><span class="aui-icon icon-error"></span><div class="message"></div></div><div class="field-group"><label for="id_general_email_address">Email address</label><input type="email" id="id_general_email_address" name="email-address" class="text"></div><p class="field-group free-users"><strong>Have questions?</strong> For every friend who joins Bitbucket, we'll <a id="general-invite-blog-link" href="http://blog.bitbucket.org/2012/09/18/refer-a-friend-to-bitbucket-for-free-users/" target="_blank">add 1 free user to your plan limit</a>. Earn up to 3 additional users.</p></form></div></div><div class="dialog-button-panel"><button class="button-panel-button aui-button aui-style">Send</button><a href="https://bitbucket.org/nitrous/mtgox-api/overview#" class="button-panel-link button-panel-cancel-link">Cancel</a></div></div></div>
+
+<!-- This script exists purely for the benefit of our selenium tests -->
+<script>
+  setTimeout(function () {
+    BB.JsLoaded = true;
+  }, 3000);
+</script>
+
+
+
+<script>
+  (function (window) {
+    // Base URL to use for non-CNAME URLs.
+    BB.baseUrl = 'https://bitbucket.org';
+
+    BB.images = {
+      invitation: 'https://d3oaxc4q5k2d6q.cloudfront.net/m/0a8a7e292790/img/icons/fugue/card_address.png',
+      noAvatar: 'https://d3oaxc4q5k2d6q.cloudfront.net/m/0a8a7e292790/img/default_avatar/16/user_blue.png'
+    };
+    BB.user = {"isKbdShortcutsEnabled": true, "isSshEnabled": false, "isAuthenticated": false};
+    BB.repo || (BB.repo = {});
+    
+      BB.repo.id = 2480958;
+      BB.repo.scm = 'git';
+      BB.repo.readonly = false;
+      
+      
+        BB.repo.language = null;
+        BB.repo.pygmentsLanguage = null;
+      
+      
+        BB.repo.slug = 'mtgox\u002Dapi';
+      
+      
+        BB.repo.owner = {};
+        BB.repo.owner.username = 'nitrous';
+        BB.repo.owner.is_team = false;
+      
+      
+        BB.repo.creator = {};
+        BB.repo.creator.username = 'nitrous';
+      
+      // Coerce `BB.repo` to a string to get
+      // "davidchambers/mango" or whatever.
+      BB.repo.toString = function () {
+        return BB.cname ? this.slug : '{owner.username}/{slug}'.format(this);
+      }
+      
+      
+    
+    window.setInterval(BB.localize, 60 * 1000);
+    $(document).on('ready pjax:end', function () { BB.localize(); });
+  })(window);
+</script>
+
+
+<script>
+    // Bitbucket Google Analytics
+    // NOTE: these will not fire in development. In debug mode it just logs them to console.
+    (function (window) {
+        // Track the main pageview to the Bitbucket GA account.
+        BB.gaqPush(['_trackPageview']);
+        // Track the main pageview to the Atlassian GA account.
+        BB.gaqPush(['atl._trackPageview']);
+
+        
+
+
+        
+
+        // Include GA commands from sub-templates
+        
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            ga.setAttribute('async', 'true');
+            document.documentElement.firstChild.appendChild(ga);
+        }());
+    })(window);
+</script>
+
+
+
+<script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-1.newrelic.com","7d4a9813d0","295788","MgMDYhcHDUJVVEIKWAtJJ0MLBRdYW1kZAV4RBBRVDgMXH1VHRhAZFwMRWVdIFVhRQEVZRQAWDkUMEgxDTQ==",0,569,new Date().getTime(),"","","","",""]);</script>
+
+<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul><div class="aui-popup auto-height aui-dialog" id="file-search-dialog" style="margin-left: -340px; width: 680px; height: auto; z-index: 3004; display: none;"><div class="dialog-components"><ul class="dialog-page-menu" style="max-height: 885px; display: none;"><li class="page-menu-item selected"><button class="item-button">Search</button></li></ul><div class="dialog-page-body"><div class="dialog-panel-body panel-body" style="max-height: 845px;"><form id="file-search-form" action="https://bitbucket.org/nitrous/mtgox-api/overview#" style="display: block;">
+  <input type="text" id="file-search-query" class="loading">
+  <div id="filtered-files"></div>
+  <div class="tip"><em>Tip:</em> Filter by directory path e.g. <strong>/media app.js</strong> to search for public<strong>/media/app.js</strong>.</div>
+  <div class="tip"><em>Tip:</em> Use camelCasing e.g. <strong>ProjME</strong> to search for <strong>ProjectModifiedE</strong>vent.java.</div>
+  <div class="tip"><em>Tip:</em> Filter by extension type e.g. <strong>/repo .js</strong> to search for all <strong>.js</strong> files in the <strong>/repo</strong> directory.</div>
+  <div class="tip"><em>Tip:</em> Separate your search with spaces e.g. <strong>/ssh pom.xml</strong> to search for src<strong>/ssh/pom.xml</strong>.</div>
+  <div class="tip"><em>Tip:</em> Use ↑ and ↓ arrow keys to navigate and <strong>return</strong> to view the file.</div>
+  
+  <div class="tip mod-win"><em>Tip:</em> You can also navigate files with <strong>Alt+j</strong> <em>(next)</em> and <strong>Alt+k</strong> <em>(previous)</em> and view the file with <strong>Alt+o</strong>.</div>
+  <script id="filtered-files-template" type="text/html">
+  
+
+<table class="aui bb-list">
+  <thead>
+    <tr class="assistive">
+      <th class="name">Filename</th>
+    </tr>
+  </thead>
+  <tbody>
+    [[#files]]
+    <tr class="iterable-item">
+      <td class="name [[#isDirectory]]directory[[/isDirectory]]">
+        <a href="/nitrous/mtgox-api/src/[[node]]/[[name]][[#branch]]?at=[[branch]][[/branch]]"
+           title="[[name]]" class="execute" tabindex="-1">
+          [[&highlightedName]]
+        </a>
+      </td>
+    </tr>
+    [[/files]]
+  </tbody>
+</table>
+
+</script>
+</form></div></div></div></div><div class="aui-popup auto-height aui-dialog" id="bb-undefined-dialog" style="margin-left: -350px; width: 700px; height: auto; z-index: 3006; display: none;"><div class="dialog-components"><ul class="dialog-page-menu" style="max-height: 885px; display: none;"><li class="page-menu-item selected"><button class="item-button">main</button></li></ul><div class="dialog-page-body"><div class="dialog-panel-body" style="max-height: 845px;"></div></div></div></div><div id="textarea_simulator" style="position: absolute; top: 0px; left: 0px; visibility: hidden;"></div><div id="ad_seo_container"><div id="ad_seo_imgoverlay" title="click to close"></div></div><script type="text/javascript" src="./nitrous   MtGox API — Bitbucket_files/rum.js"></script><script type="text/javascript" src="./nitrous   MtGox API — Bitbucket_files/7d4a9813d0"></script><script style="display: none;" id="hiddenlpsubmitdiv"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
