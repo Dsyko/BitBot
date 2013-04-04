@@ -22,17 +22,17 @@ class requester:
         self.auth_secret = base64.b64decode(auth_secret)
         self.base = "https://data.mtgox.com/api/2/"
 
-    def build_query(self, request=None):
+    def build_query(self, path, request=None):
         if not request: request = {}
         request["nonce"] = get_nonce()
         post_data = urlencode(request)
         headers = {"User-Agent": "BitBot",
                    "Rest-Key": self.auth_key,
-                   "Rest-Sign": sign_data(self.auth_secret, post_data)}
+                   "Rest-Sign": sign_data(self.auth_secret, path + chr(0) + post_data)} #API2 uses Path in hash
         return post_data, headers
 
     def perform(self, path, args):
-        data, headers = self.build_query(args)
+        data, headers = self.build_query(path, args)
         request = urllib2.Request(self.base + path, data, headers)
         response = urllib2.urlopen(request, data)
         return json.load(response)
