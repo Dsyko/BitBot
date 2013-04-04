@@ -34,6 +34,5 @@ nosetests.xml
 .project
 .pydevproject
 
-#Testing Files
+#API key/secret Files
 Secret.py
-TestGox.py
