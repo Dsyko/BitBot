@@ -35,4 +35,4 @@ nosetests.xml
 .pydevproject
 
 #Testing Files
-TestGox.py
+Secret.py
