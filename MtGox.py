@@ -16,7 +16,7 @@ def get_nonce():
 def sign_data(secret, data):
     return base64.b64encode(str(HMAC(secret, data, sha512).digest()))
 
-class requester:
+class GoxRequester:
     def __init__(self, auth_key, auth_secret):
         self.auth_key = auth_key
         self.auth_secret = base64.b64decode(auth_secret)
@@ -36,3 +36,25 @@ class requester:
         request = urllib2.Request(self.base + path, data, headers)
         response = urllib2.urlopen(request, data)
         return json.load(response)
+
+
+    def trade_order(self, ordertype, bitcoins, price=None):
+        """
+
+        :param ordertype: "buy" or "sell"
+        :param bitcoins: number of bitcoins
+        :param price:  USD price of bitcoins or omit param for market order
+        :return: json value returned by API result success or fail plus data containing ID of order id successful
+        """
+        args = {"amount_int" : int(bitcoins * 1e8)}
+        if price:
+            args["price_int"] = int(price * 1e5)
+        if ordertype == "buy":
+            args["type"] = "bid"
+        if ordertype == "sell":
+            args["type"] = "ask"
+
+        return self.perform("BTCUSD/money/order/add", args)
+
+    def account_info(self):
+        return self.perform("BTCUSD/money/info", {})
