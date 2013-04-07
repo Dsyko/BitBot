@@ -17,6 +17,8 @@ def sign_data(secret, data):
     return base64.b64encode(str(HMAC(secret, data, sha512).digest()))
 
 class GoxRequester:
+    #TODO: Handle errors related to API request errors and server down errors
+    #TODO: Live Price info
     def __init__(self, auth_key, auth_secret):
         self.auth_key = auth_key
         self.auth_secret = base64.b64decode(auth_secret)
@@ -104,4 +106,6 @@ class GoxRequester:
             if order_type == 'all' or order_type == order['type']:
                 return self.cancel_order_id(order['order_id'])
 
-    #TODO: Handle errors related to API request errors and server down errors
+    def market_info(self):
+        data = self.send_request("BTCUSD/money/ticker", {})
+        return {"time": data["data"]["now"], "volume": float(data["data"]["vol"]["value"]), "price": float(data["data"]["last"]["value"]), "vwap": float(data["data"]["vwap"]["value"])}
