@@ -60,22 +60,48 @@ class GoxRequester:
         return self.send_request("BTCUSD/money/info", {})
 
     def orders_info(self):
+
+        """
+
+
+        :return: A list of objects with structure [{"order_id": "unique id of order", "type": "buy or sell",
+                                        "num_btc": "number of btc in order", "usd_price": "price per coin"}, ...]
+        """
         data = self.send_request("BTCUSD/money/orders", {})
         list_of_orders = []
         if data['result'] == 'success':
             for order in data['data']:
-                order_to_add = {}
-                order_to_add['order id'] = order['oid']
+                order_to_add = {'order_id': order['oid']}
 
                 if order['type'] == 'bid':
-                    order_to_add['type'] = 'buying'
+                    order_to_add['type'] = 'buy'
                 else:
-                    order_to_add['type'] = 'selling'
+                    order_to_add['type'] = 'sell'
 
                 order_to_add['num_btc'] = float(order['amount']['value'])
                 order_to_add['usd_price'] = float(order['price']['value'])
                 list_of_orders.append(order_to_add)
         return list_of_orders
 
-    #TODO: Cancel orders, "all" "buys" "sells" "by id"
+    def cancel_order_id(self, order_id):
+        """
+
+
+        :param order_id: unique id of order to cancel
+        :return: json object returned by MtGox
+        """
+        return self.send_request("BTCUSD/money/order/cancel", {"oid": str(order_id)})
+
+
+    def cancel_order_by_type(self, order_type):
+        """
+
+        :param order_type: 'all', 'buy' or 'sell' specifies which orders to cancel
+        :return: json object returned by MtGox
+        """
+        open_orders = self.orders_info()
+        for order in open_orders:
+            if order_type == 'all' or order_type == order['type']:
+                return self.cancel_order_id(order['order_id'])
+
     #TODO: Handle errors related to API request errors and server down errors

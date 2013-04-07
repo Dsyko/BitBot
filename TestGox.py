@@ -12,4 +12,4 @@ Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
 #print Gox.account_info()
 data = Gox.orders_info()
 for order in data:
-    print "%s %.2f BTC for $%.2f each" % (order['type'], order['num_btc'], order['usd_price'])
+    print "id: %s %s %.2f BTC for $%.2f each" % (order['order_id'], order['type'], order['num_btc'], order['usd_price'])
