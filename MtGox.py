@@ -31,7 +31,7 @@ class GoxRequester:
                    "Rest-Sign": sign_data(self.auth_secret, path + chr(0) + post_data)} #API2 uses Path in hash
         return post_data, headers
 
-    def perform(self, path, args):
+    def send_request(self, path, args):
         data, headers = self.build_query(path, args)
         request = urllib2.Request(self.base + path, data, headers)
         response = urllib2.urlopen(request, data)
@@ -54,7 +54,11 @@ class GoxRequester:
         if ordertype == "sell":
             args["type"] = "ask"
 
-        return self.perform("BTCUSD/money/order/add", args)
+        return self.send_request("BTCUSD/money/order/add", args)
 
     def account_info(self):
-        return self.perform("BTCUSD/money/info", {})
+        return self.send_request("BTCUSD/money/info", {})
+
+    #TODO: Cancel orders, "all" "buys" "sells" "by id"
+    #TODO: Get open order information
+    #TODO: Handle errors related to API request errors and server down errors

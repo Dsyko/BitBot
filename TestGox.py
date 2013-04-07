@@ -4,7 +4,7 @@ import MtGox
 import Secret
 
 
-Gox = MtGox.GoxRequester(Secret.api_key, Secret.auth_secret)
+Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
 
 #print Gox.perform("BTCUSD/money/ticker", "")
 #bid = buy, ask = sell BTC
