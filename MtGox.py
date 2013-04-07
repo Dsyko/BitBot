@@ -105,7 +105,22 @@ class GoxRequester:
         for order in open_orders:
             if order_type == 'all' or order_type == order['type']:
                 return self.cancel_order_id(order['order_id'])
+    def market_lag(self):
+        data = self.send_request("BTCUSD/money/order/lag", {})
+        if data['result'] == 'success':
+            return data['data']['lag_secs']
 
     def market_info(self):
         data = self.send_request("BTCUSD/money/ticker", {})
-        return {"time": data["data"]["now"], "volume": float(data["data"]["vol"]["value"]), "price": float(data["data"]["last"]["value"]), "vwap": float(data["data"]["vwap"]["value"])}
+        return {"time": data["data"]["now"], "volume": float(data["data"]["vol"]["value"]), "price": float(data["data"]["last"]["value"]), "vwap": float(data["data"]["vwap"]["value"]), "lag": self.market_lag()}
+
+    def historic_data(self, start_time=None):
+        """
+
+        :param start_time: unix time stamp to begin getting 24 hours of data from
+        """
+
+        args = {}
+        if start_time:
+            args['since'] = start_time
+        return self.send_request("BTCUSD/money/trades/fetch", args)

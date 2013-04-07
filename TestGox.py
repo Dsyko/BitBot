@@ -5,8 +5,12 @@ import Secret
 import json
 import couchdb
 
+def pretty(text):
+    return json.dumps(text, indent = 4, sort_keys = True)
 
 Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
+couch = couchdb.Server(Secret.couch_url)
+database = couch['bitcoin-historic-data']
 
 #print Gox.perform("BTCUSD/money/ticker", "")
 
@@ -19,4 +23,8 @@ Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
 #for order in data:
 #    print "id: %s %s %.2f BTC for $%.2f each" % (order['order_id'], order['type'], order['num_btc'], order['usd_price'])
 
-print json.dumps(Gox.market_info(), indent = 4, sort_keys = True)
+#market_info = Gox.market_info()
+#print pretty(market_info)
+#print database.save(market_info)
+
+#print pretty(Gox.historic_data())
