@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1619441c-6294-4b86-a3e9-d57aba9cf822" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MtGox.py" afterPath="$PROJECT_DIR$/MtGox.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestGox.py" afterPath="$PROJECT_DIR$/TestGox.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HistoricDataCapture.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BitBot.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365328363444" ignored="false" />
+    <file path="/Dummy.txt" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365366005321" ignored="false" />
     <file path="/MtGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365331835392" ignored="false" />
     <file path="/.gitignore" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365153071387" ignored="false" />
     <file path="/TestGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365333686270" ignored="false" />
     <file path="/Secret.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365329170042" ignored="false" />
-    <file path="/Python Console" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365327141448" ignored="false" />
+    <file path="/Python Console" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365368679668" ignored="false" />
+    <file path="/HistoricDataCapture.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365372754044" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +30,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MtGox.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MtGox.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MtGox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="26" selection-start="3929" selection-end="3929" vertical-scroll-proportion="0.42664418">
+            <state line="118" column="0" selection-start="4260" selection-end="4260" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -51,7 +51,18 @@
       <file leaf-file-name="TestGox.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestGox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="1" selection-start="690" selection-end="690" vertical-scroll-proportion="0.0">
+            <state line="29" column="14" selection-start="703" selection-end="722" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#22#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HistoricDataCapture.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/HistoricDataCapture.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="0" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.84158415">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
               </folding>
@@ -79,8 +90,10 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Secret.py" />
-        <option value="$PROJECT_DIR$/MtGox.py" />
         <option value="$PROJECT_DIR$/TestGox.py" />
+        <option value="$PROJECT_DIR$/MtGox.py" />
+        <option value="$PROJECT_DIR$/MtGox API info/HistoricDataCapture.py" />
+        <option value="$PROJECT_DIR$/HistoricDataCapture.py" />
       </list>
     </option>
   </component>
@@ -135,6 +148,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BitBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BitBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MtGox API info" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -152,7 +179,12 @@
       <PyConsoleSettings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.TestGox">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dsyko\Dropbox\Projects\BitBot" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.HistoricDataCapture">
     <configuration default="false" name="TestGox" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -165,6 +197,23 @@
       <module name="BitBot" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestGox.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HistoricDataCapture" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="BitBot" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HistoricDataCapture.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -206,12 +255,32 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="BitBot" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.TestGox" />
+      <item index="1" class="java.lang.String" itemvalue="Python.HistoricDataCapture" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.TestGox" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.HistoricDataCapture" />
+        <item index="1" class="java.lang.String" itemvalue="Python.TestGox" />
       </list>
     </recent_temporary>
   </component>
@@ -231,26 +300,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="1186" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26319176" sideWeight="0.6129971" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26705277" sideWeight="0.6129971" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39961204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38700292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38700292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39961204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -310,11 +379,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -383,25 +447,12 @@
     </entry>
     <entry file="file://C:/Python27/Lib/site-packages/couchdb-0.8-py2.7.egg/couchdb/http.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="309" column="0" selection-start="10576" selection-end="10576" vertical-scroll-proportion="0.88503253">
-          <folding />
-        </state>
+        <state line="309" column="0" selection-start="10576" selection-end="10576" vertical-scroll-proportion="0.88503253" />
       </provider>
     </entry>
     <entry file="file://C:/Python27/Lib/ssl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="0" selection-start="9844" selection-end="9844" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestGox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="1" selection-start="690" selection-end="690" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#22#34#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="304" column="0" selection-start="9844" selection-end="9844" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Secret.py">
@@ -413,8 +464,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MtGox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="26" selection-start="3929" selection-end="3929" vertical-scroll-proportion="0.42664418">
+        <state line="118" column="0" selection-start="4260" selection-end="4260" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestGox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="14" selection-start="703" selection-end="722" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#22#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HistoricDataCapture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.84158415">
+          <folding>
+            <element signature="e#22#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
