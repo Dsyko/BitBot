@@ -59,6 +59,23 @@ class GoxRequester:
     def account_info(self):
         return self.send_request("BTCUSD/money/info", {})
 
+    def orders_info(self):
+        data = self.send_request("BTCUSD/money/orders", {})
+        list_of_orders = []
+        if data['result'] == 'success':
+            for order in data['data']:
+                order_to_add = {}
+                order_to_add['order id'] = order['oid']
+
+                if order['type'] == 'bid':
+                    order_to_add['type'] = 'buying'
+                else:
+                    order_to_add['type'] = 'selling'
+
+                order_to_add['num_btc'] = float(order['amount']['value'])
+                order_to_add['usd_price'] = float(order['price']['value'])
+                list_of_orders.append(order_to_add)
+        return list_of_orders
+
     #TODO: Cancel orders, "all" "buys" "sells" "by id"
-    #TODO: Get open order information
     #TODO: Handle errors related to API request errors and server down errors
