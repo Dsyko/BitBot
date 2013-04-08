@@ -19,9 +19,9 @@ class HistoricDataCapture:
     def GoxToCouch(self, start_time, end_time, time_interval):
         """
 
-        :param start_time: milliseconds since 1970 to start at
-        :param end_time: milliseconds since 1970 to end at
-        :param time_interval: milliseconds between data points
+        :param start_time: microseconds since 1970(epoch) to start at
+        :param end_time: microseconds since 1970(epoch) to end at
+        :param time_interval: microseconds between data points trades will be grouped averaged
         """
         last_trade_time = start_time
 
@@ -42,7 +42,7 @@ class HistoricDataCapture:
             trades_grouped_by_time = {}
             for trade in raw_trades["data"]:
                 if trade["primary"] == "Y":
-                    #divide by the time_interval and use floor to cut off unused milliseconds,
+                    #divide by the time_interval and use floor to cut off(round down) unused microseconds,
                     # then multiply by time_interval to get back to proper timestamp
                     quantized_trade_time = int(math.floor(int(trade['tid']) / time_interval) * time_interval)
                     if trades_grouped_by_time.get(quantized_trade_time, False):
@@ -62,7 +62,7 @@ class HistoricDataCapture:
             #If our last_trade_time hasn't advanced since our last call to the API add a day so we don't get stuck
             if previous_request_start_time >= last_trade_time:
                 last_trade_time += 86400000000
-            #last_trade_time = end_time
+            
 
 
 
@@ -77,4 +77,4 @@ couch = couchdb.Server(Secret.couch_url)
 database = couch['bitcoin-historic-data']
 
 TestHistoric = HistoricDataCapture(Gox, database)
-TestHistoric.GoxToCouch(1364947200000000, 1365206400000000, 60 * 1000000)
+TestHistoric.GoxToCouch(1364169600000000, 1364774400000000, 60 * 1000000)

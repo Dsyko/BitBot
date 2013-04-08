@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1619441c-6294-4b86-a3e9-d57aba9cf822" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricDataCapture.py" afterPath="$PROJECT_DIR$/HistoricDataCapture.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MtGox.py" afterPath="$PROJECT_DIR$/MtGox.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestGox.py" afterPath="$PROJECT_DIR$/TestGox.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BitBot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -14,7 +13,7 @@
     <file path="/TestGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382562955" ignored="false" />
     <file path="/Secret.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365329170042" ignored="false" />
     <file path="/Python Console" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382524091" ignored="false" />
-    <file path="/HistoricDataCapture.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382857578" ignored="false" />
+    <file path="/HistoricDataCapture.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365401197376" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,7 @@
       <file leaf-file-name="HistoricDataCapture.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HistoricDataCapture.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="92" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.70016474">
+            <state line="64" column="12" selection-start="3044" selection-end="3044" vertical-scroll-proportion="0.83196044">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
               </folding>
@@ -313,7 +312,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38603297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38603297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -483,7 +482,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HistoricDataCapture.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="92" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.70016474">
+        <state line="64" column="12" selection-start="3044" selection-end="3044" vertical-scroll-proportion="0.83196044">
           <folding>
             <element signature="e#22#34#0" expanded="true" />
           </folding>
