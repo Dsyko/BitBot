@@ -4,6 +4,7 @@ import MtGox
 import Secret
 import json
 import couchdb
+import time
 
 def pretty(text):
     return json.dumps(text, indent = 4, sort_keys = True)
@@ -25,6 +26,9 @@ database = couch['bitcoin-historic-data']
 
 #market_info = Gox.market_info()
 #print pretty(market_info)
-#print database.save(market_info)
-
+#results = database.view("Prices/time")
+#print list(results[1365329880000000:1365330600000000])
+#for time in results[1365329880000000:1365330600000000]:
+#    print time.value
+print time.ctime(int("1365202"))
 #print pretty(Gox.historic_data())

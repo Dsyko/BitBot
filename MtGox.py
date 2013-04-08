@@ -18,7 +18,7 @@ def sign_data(secret, data):
 
 class GoxRequester:
     #TODO: Handle errors related to API request errors and server down errors
-    #TODO: Live Price info
+    #TODO: Websockets version of this api
     def __init__(self, auth_key, auth_secret):
         self.auth_key = auth_key
         self.auth_secret = base64.b64decode(auth_secret)

@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1619441c-6294-4b86-a3e9-d57aba9cf822" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HistoricDataCapture.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricDataCapture.py" afterPath="$PROJECT_DIR$/HistoricDataCapture.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MtGox.py" afterPath="$PROJECT_DIR$/MtGox.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestGox.py" afterPath="$PROJECT_DIR$/TestGox.py" />
     </list>
     <ignored path="BitBot.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365366005321" ignored="false" />
-    <file path="/MtGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365331835392" ignored="false" />
+    <file path="/Dummy.txt" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365375188684" ignored="false" />
+    <file path="/MtGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365375232476" ignored="false" />
     <file path="/.gitignore" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365153071387" ignored="false" />
-    <file path="/TestGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365333686270" ignored="false" />
+    <file path="/TestGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382562955" ignored="false" />
     <file path="/Secret.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365329170042" ignored="false" />
-    <file path="/Python Console" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365368679668" ignored="false" />
-    <file path="/HistoricDataCapture.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365372754044" ignored="false" />
+    <file path="/Python Console" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382524091" ignored="false" />
+    <file path="/HistoricDataCapture.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382857578" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
       <file leaf-file-name="MtGox.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MtGox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="0" selection-start="4260" selection-end="4260" vertical-scroll-proportion="0.0">
+            <state line="45" column="41" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -51,7 +52,7 @@
       <file leaf-file-name="TestGox.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestGox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="14" selection-start="703" selection-end="722" vertical-scroll-proportion="0.0">
+            <state line="32" column="29" selection-start="870" selection-end="870" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
               </folding>
@@ -62,7 +63,7 @@
       <file leaf-file-name="HistoricDataCapture.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HistoricDataCapture.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="0" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.84158415">
+            <state line="37" column="92" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.70016474">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
               </folding>
@@ -90,9 +91,9 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Secret.py" />
-        <option value="$PROJECT_DIR$/TestGox.py" />
-        <option value="$PROJECT_DIR$/MtGox.py" />
         <option value="$PROJECT_DIR$/MtGox API info/HistoricDataCapture.py" />
+        <option value="$PROJECT_DIR$/MtGox.py" />
+        <option value="$PROJECT_DIR$/TestGox.py" />
         <option value="$PROJECT_DIR$/HistoricDataCapture.py" />
       </list>
     </option>
@@ -129,7 +130,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -164,6 +164,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -198,7 +199,9 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestGox.py" />
       <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonCover" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonCover" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -304,22 +307,22 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26705277" sideWeight="0.6129971" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27091378" sideWeight="0.613967" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39961204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38700292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38603297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39961204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -464,14 +467,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MtGox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="0" selection-start="4260" selection-end="4260" vertical-scroll-proportion="0.0">
+        <state line="45" column="41" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestGox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="14" selection-start="703" selection-end="722" vertical-scroll-proportion="0.0">
+        <state line="32" column="29" selection-start="870" selection-end="870" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#22#34#0" expanded="true" />
           </folding>
@@ -480,7 +483,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HistoricDataCapture.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.84158415">
+        <state line="37" column="92" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.70016474">
           <folding>
             <element signature="e#22#34#0" expanded="true" />
           </folding>
