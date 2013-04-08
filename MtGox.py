@@ -17,14 +17,15 @@ def sign_data(secret, data):
     return base64.b64encode(str(HMAC(secret, data, sha512).digest()))
 
 class GoxRequester:
-    #TODO: Handle errors related to API request errors and server down errors
+    #TODO: Handle errors related to API request errors and server down errors, rety a specified number of times (use decorator function)
+    #TODO: Abstract data returned by Gox into uniform dictionaries (Only have to update this file when API changes)
     #TODO: Websockets version of this api
     def __init__(self, auth_key, auth_secret):
         self.auth_key = auth_key
         self.auth_secret = base64.b64decode(auth_secret)
         self.base = "https://data.mtgox.com/api/2/"
 
-    def build_query(self, path, request=None):
+    def build_query(self, path, request = None):
         if not request: request = {}
         request["nonce"] = get_nonce()
         post_data = urlencode(request)
@@ -33,14 +34,14 @@ class GoxRequester:
                    "Rest-Sign": sign_data(self.auth_secret, path + chr(0) + post_data)} #API2 uses Path in hash
         return post_data, headers
 
-    def send_request(self, path, args):
+    def send_http_request(self, path, args):
         data, headers = self.build_query(path, args)
         request = urllib2.Request(self.base + path, data, headers)
         response = urllib2.urlopen(request, data)
         return json.load(response)
 
 
-    def trade_order(self, ordertype, bitcoins, price=None):
+    def trade_order(self, ordertype, bitcoins, price = None):
         """
 
         :param ordertype: "buy" or "sell"
@@ -56,10 +57,15 @@ class GoxRequester:
         if ordertype == "sell":
             args["type"] = "ask"
 
-        return self.send_request("BTCUSD/money/order/add", args)
+        if self.send_http_request("BTCUSD/money/order/add", args)['result'] == "success":
+            return True
+        else:
+            return False
 
     def account_info(self):
-        return self.send_request("BTCUSD/money/info", {})
+        data = self.send_http_request("BTCUSD/money/info", {})
+        if data['result'] == "success":
+            return {'TradeFee': data['data']["trade_fee"], 'btc_balance': float(data['data']["Wallets"]['BTC']['Balance']['value']), 'usd_balance': float(data['data']["Wallets"]['USD']['Balance']['value'])}
 
     def orders_info(self):
 
@@ -69,7 +75,7 @@ class GoxRequester:
         :return: A list of objects with structure [{"order_id": "unique id of order", "type": "buy or sell",
                                         "num_btc": "number of btc in order", "usd_price": "price per coin"}, ...]
         """
-        data = self.send_request("BTCUSD/money/orders", {})
+        data = self.send_http_request("BTCUSD/money/orders", {})
         list_of_orders = []
         if data['result'] == 'success':
             for order in data['data']:
@@ -83,6 +89,7 @@ class GoxRequester:
                 order_to_add['num_btc'] = float(order['amount']['value'])
                 order_to_add['usd_price'] = float(order['price']['value'])
                 list_of_orders.append(order_to_add)
+
         return list_of_orders
 
     def cancel_order_id(self, order_id):
@@ -92,7 +99,10 @@ class GoxRequester:
         :param order_id: unique id of order to cancel
         :return: json object returned by MtGox
         """
-        return self.send_request("BTCUSD/money/order/cancel", {"oid": str(order_id)})
+        if self.send_http_request("BTCUSD/money/order/cancel", {"oid": str(order_id)})['result'] == "success":
+            return True
+        else:
+            return False
 
 
     def cancel_order_by_type(self, order_type):
@@ -104,14 +114,16 @@ class GoxRequester:
         open_orders = self.orders_info()
         for order in open_orders:
             if order_type == 'all' or order_type == order['type']:
-                return self.cancel_order_id(order['order_id'])
+                if not (self.cancel_order_id(order['order_id'])):
+                    return False
+        return True
     def market_lag(self):
-        data = self.send_request("BTCUSD/money/order/lag", {})
+        data = self.send_http_request("BTCUSD/money/order/lag", {})
         if data['result'] == 'success':
             return data['data']['lag_secs']
 
     def market_info(self):
-        data = self.send_request("BTCUSD/money/ticker", {})
+        data = self.send_http_request("BTCUSD/money/ticker", {})
         return {"time": data["data"]["now"], "volume": float(data["data"]["vol"]["value"]), "price": float(data["data"]["last"]["value"]), "vwap": float(data["data"]["vwap"]["value"]), "lag": self.market_lag()}
 
     def historic_data(self, start_time=None):
@@ -123,4 +135,4 @@ class GoxRequester:
         args = {}
         if start_time:
             args['since'] = start_time
-        return self.send_request("BTCUSD/money/trades/fetch", args)
+        return self.send_http_request("BTCUSD/money/trades/fetch", args)

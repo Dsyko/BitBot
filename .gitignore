@@ -34,5 +34,8 @@ nosetests.xml
 .project
 .pydevproject
 
-#API key/secret Files
+#API key/secret containing files
 Secret.py
+
+#Dependencies, large files that don't need to be version controlles
+Dependencies/

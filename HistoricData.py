@@ -11,7 +11,7 @@ import time
 def pretty(text):
     return json.dumps(text, indent = 4, sort_keys = True)
 
-class HistoricDataCapture:
+class HistoricData:
     def __init__(self, api_interface, couch_interface):
         self.api_interface = api_interface
         self.couch_interface = couch_interface
@@ -62,7 +62,7 @@ class HistoricDataCapture:
             #If our last_trade_time hasn't advanced since our last call to the API add a day so we don't get stuck
             if previous_request_start_time >= last_trade_time:
                 last_trade_time += 86400000000
-            
+
 
 
 
@@ -76,5 +76,5 @@ Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
 couch = couchdb.Server(Secret.couch_url)
 database = couch['bitcoin-historic-data']
 
-TestHistoric = HistoricDataCapture(Gox, database)
-TestHistoric.GoxToCouch(1364169600000000, 1364774400000000, 60 * 1000000)
+TestHistoric = HistoricData(Gox, database)
+TestHistoric.GoxToCouch(1362960000000000, 1363564800000000, 60 * 1000000)
