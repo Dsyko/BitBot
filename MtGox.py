@@ -16,9 +16,27 @@ def get_nonce():
 def sign_data(secret, data):
     return base64.b64encode(str(HMAC(secret, data, sha512).digest()))
 
+#Decorator function used to catch http errors and retry the request up to 5 times with throttling
+def catch_http_errors(function):
+    def catcher(*args, **kwargs):
+        num_retries = 0
+        while num_retries < 5:
+            if num_retries > 0:
+                time.sleep(5 * num_retries)
+
+            try:
+                result = function(*args, **kwargs)
+            except urllib2.HTTPError as e:
+                print 'HTTP Error code: %s: %s' % (e.code, e.msg)
+                print "URL: %s" % (e.filename)
+                num_retries += 1
+                print "Retry Number: %d" % (num_retries)
+            else:
+                return result
+        return False
+    return catcher
+
 class GoxRequester:
-    #TODO: Handle errors related to API request errors and server down errors, rety a specified number of times (use decorator function)
-    #TODO: Abstract data returned by Gox into uniform dictionaries (Only have to update this file when API changes)
     #TODO: Websockets version of this api
     def __init__(self, auth_key, auth_secret):
         self.auth_key = auth_key
@@ -61,12 +79,15 @@ class GoxRequester:
             return True
         else:
             return False
-
+    @catch_http_errors
     def account_info(self):
         data = self.send_http_request("BTCUSD/money/info", {})
         if data['result'] == "success":
-            return {'TradeFee': data['data']["trade_fee"], 'btc_balance': float(data['data']["Wallets"]['BTC']['Balance']['value']), 'usd_balance': float(data['data']["Wallets"]['USD']['Balance']['value'])}
+            return {'trade_fee': data['data']["Trade_Fee"], 'btc_balance': float(data['data']["Wallets"]['BTC']['Balance']['value']), 'usd_balance': float(data['data']["Wallets"]['USD']['Balance']['value'])}
+        else:
+            return False
 
+    @catch_http_errors
     def orders_info(self):
 
         """
@@ -92,6 +113,7 @@ class GoxRequester:
 
         return list_of_orders
 
+    @catch_http_errors
     def cancel_order_id(self, order_id):
         """
 
@@ -104,7 +126,7 @@ class GoxRequester:
         else:
             return False
 
-
+    @catch_http_errors
     def cancel_order_by_type(self, order_type):
         """
 
@@ -117,15 +139,19 @@ class GoxRequester:
                 if not (self.cancel_order_id(order['order_id'])):
                     return False
         return True
+
+    @catch_http_errors
     def market_lag(self):
         data = self.send_http_request("BTCUSD/money/order/lag", {})
         if data['result'] == 'success':
             return data['data']['lag_secs']
 
+    @catch_http_errors
     def market_info(self):
         data = self.send_http_request("BTCUSD/money/ticker", {})
         return {"time": data["data"]["now"], "volume": float(data["data"]["vol"]["value"]), "price": float(data["data"]["last"]["value"]), "vwap": float(data["data"]["vwap"]["value"]), "lag": self.market_lag()}
 
+    @catch_http_errors
     def historic_data(self, start_time=None):
         """
 

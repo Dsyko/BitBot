@@ -18,7 +18,7 @@ database = couch['bitcoin-historic-data']
 
 #print Gox.trade_order("sell", .01, 1000)
 
-#print pretty(Gox.account_info())
+print pretty(Gox.account_info())
 #print pretty(Gox.orders_info())
 #print Gox.cancel_order_id("a08c8df4-633f-4855-bd03-f20e46a26abc")
 #print Gox.cancel_order_by_type("sell")
