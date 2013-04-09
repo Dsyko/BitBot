@@ -63,18 +63,11 @@ class HistoricData:
             if previous_request_start_time >= last_trade_time:
                 last_trade_time += 86400000000
 
+if __name__ == "__main__":
+    import sys
+    Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
+    couch = couchdb.Server(Secret.couch_url)
+    database = couch['bitcoin-historic-data']
 
-
-
-
-
-
-
-
-
-Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
-couch = couchdb.Server(Secret.couch_url)
-database = couch['bitcoin-historic-data']
-
-TestHistoric = HistoricData(Gox, database)
-TestHistoric.GoxToCouch(1362960000000000, 1363564800000000, 60 * 1000000)
+    TestHistoric = HistoricData(Gox, database)
+    TestHistoric.GoxToCouch(1357232400000000, 1358035200000000, 60 * 1000000)

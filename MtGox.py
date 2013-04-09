@@ -23,18 +23,18 @@ def catch_http_errors(function):
         while num_retries < 5:
             if num_retries > 0:
                 time.sleep(5 * num_retries)
-
             try:
                 result = function(*args, **kwargs)
             except urllib2.HTTPError as e:
                 print 'HTTP Error code: %s: %s' % (e.code, e.msg)
-                print "URL: %s" % (e.filename)
+                print "URL: %s" % e.filename
                 num_retries += 1
-                print "Retry Number: %d" % (num_retries)
+                print "Retry Number: %d" % num_retries
             else:
                 return result
         return False
     return catcher
+
 
 class GoxRequester:
     #TODO: Websockets version of this api
@@ -44,7 +44,8 @@ class GoxRequester:
         self.base = "https://data.mtgox.com/api/2/"
 
     def build_query(self, path, request = None):
-        if not request: request = {}
+        if request is None:
+            request = {}
         request["nonce"] = get_nonce()
         post_data = urlencode(request)
         headers = {"User-Agent": "BitBot",
@@ -58,21 +59,21 @@ class GoxRequester:
         response = urllib2.urlopen(request, data)
         return json.load(response)
 
-
-    def trade_order(self, ordertype, bitcoins, price = None):
+    @catch_http_errors
+    def trade_order(self, order_type, bitcoins, price = None):
         """
 
-        :param ordertype: "buy" or "sell"
+        :param order_type: "buy" or "sell"
         :param bitcoins: number of bitcoins
         :param price:  USD price of bitcoins or omit param for market order
         :return: json value returned by API result success or fail plus data containing ID of order id successful
         """
         args = {"amount_int" : int(bitcoins * 1e8)}
-        if price:
+        if price is not None:
             args["price_int"] = int(price * 1e5)
-        if ordertype == "buy":
+        if order_type == "buy":
             args["type"] = "bid"
-        if ordertype == "sell":
+        if order_type == "sell":
             args["type"] = "ask"
 
         if self.send_http_request("BTCUSD/money/order/add", args)['result'] == "success":
@@ -159,6 +160,6 @@ class GoxRequester:
         """
 
         args = {}
-        if start_time:
+        if start_time is not None:
             args['since'] = start_time
         return self.send_http_request("BTCUSD/money/trades/fetch", args)
