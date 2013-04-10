@@ -16,7 +16,7 @@ class HistoricData:
         self.api_interface = api_interface
         self.couch_interface = couch_interface
 
-    def GoxToCouch(self, start_time, end_time, time_interval):
+    def gox_to_couchdb(self, start_time, end_time, time_interval):
         """
 
         :param start_time: microseconds since 1970(epoch) to start at
@@ -28,8 +28,8 @@ class HistoricData:
         #Get a list of times already in the DB so we don't repeat ourselves
         times_entered_into_db = {}
         #We need to have a view to our couchDB which emits the time as the key in the Map function, mine is saved in Prices/time
-        viewname = "Prices/time"
-        times_in_db = self.couch_interface.view(viewname)
+        view_name = "Prices/time"
+        times_in_db = self.couch_interface.view(view_name)
         for single_time in times_in_db[start_time:end_time]:
             times_entered_into_db[single_time.key] = True
         #print times_entered_into_db
@@ -63,11 +63,24 @@ class HistoricData:
             if previous_request_start_time >= last_trade_time:
                 last_trade_time += 86400000000
 
-if __name__ == "__main__":
-    import sys
-    Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
-    couch = couchdb.Server(Secret.couch_url)
-    database = couch['bitcoin-historic-data']
 
+#Following code will only be executed if this module is run independently, not when imported. Use it to test the module.
+if __name__ == "__main__":
+
+    #Creating instance of our MtGox api interface. Using API key and secret saved in Secret.py
+    Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
+    #Creating instance of our couchDB interface, using url(string) with login and pass saved in Secret.py
+    couch = couchdb.Server(Secret.couch_url)
+
+    #Start time and end time create bound which trade data will be added to our database
+    start_time = 1365292800000000
+    end_time = 1365336000000000
+    #time_interval is in seconds, groups trades together within this interval and averages them to create a single datapoint
+    time_interval = 60
+    db_name = 'bitcoin-historic-data'
+    database = couch[db_name]
+
+    #Create an instance of HistoricData Class passing our API and DB interface instances
     TestHistoric = HistoricData(Gox, database)
-    TestHistoric.GoxToCouch(1357232400000000, 1358035200000000, 60 * 1000000)
+    print "Calling gox_to_couchdb requesting trades between %s and %s. \n Then averaging them into %d second time intervals and saving them to the %s database on our CouchDB" % (time.ctime(int(start_time / 1e6)), time.ctime(int(end_time / 1e6)), time_interval, db_name)
+    TestHistoric.gox_to_couchdb(start_time, end_time, time_interval * 1000000)
