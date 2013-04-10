@@ -11,7 +11,7 @@ import time
 def pretty(text):
     return json.dumps(text, indent = 4, sort_keys = True)
 
-class HistoricData:
+class HistoricDataCapture:
     def __init__(self, api_interface, couch_interface):
         self.api_interface = api_interface
         self.couch_interface = couch_interface
@@ -80,7 +80,8 @@ if __name__ == "__main__":
     db_name = 'bitcoin-historic-data'
     database = couch[db_name]
 
-    #Create an instance of HistoricData Class passing our API and DB interface instances
-    TestHistoric = HistoricData(Gox, database)
+    #Create an instance of HistoricDataCapture Class passing our API and DB interface instances
+    TestHistoric = HistoricDataCapture(Gox, database)
     print "Calling gox_to_couchdb requesting trades between %s and %s. \n Then averaging them into %d second time intervals and saving them to the %s database on our CouchDB" % (time.ctime(int(start_time / 1e6)), time.ctime(int(end_time / 1e6)), time_interval, db_name)
     TestHistoric.gox_to_couchdb(start_time, end_time, time_interval * 1000000)
+    print "Should be done now, go check couchDB for new Documents"

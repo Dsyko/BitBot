@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1619441c-6294-4b86-a3e9-d57aba9cf822" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricData.py" afterPath="$PROJECT_DIR$/HistoricData.py" />
+      <change type="MOVED" beforePath="C:\Users\dsyko\Dropbox\Projects\BitBot\HistoricData.py" afterPath="$PROJECT_DIR$/HistoricDataCapture.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TradeController.py" afterPath="$PROJECT_DIR$/TradeController.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -15,9 +15,9 @@
     <file path="/Secret.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365329170042" ignored="false" />
     <file path="/Python Console" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382524091" ignored="false" />
     <file path="/HistoricDataCapture.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365401197376" ignored="false" />
-    <file path="/TradeController.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365579307107" ignored="false" />
+    <file path="/TradeController.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365590417785" ignored="false" />
     <file path="/scratch.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365552164528" ignored="false" />
-    <file path="/HistoricData.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365579334735" ignored="false" />
+    <file path="/HistoricData.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365581472936" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +34,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HistoricData.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HistoricData.py">
+      <file leaf-file-name="HistoricDataCapture.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HistoricDataCapture.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="3181" selection-end="3181" vertical-scroll-proportion="0.0">
+            <state line="13" column="26" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -55,7 +55,7 @@
       <file leaf-file-name="TradeController.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TradeController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="42" selection-start="2662" selection-end="2662" vertical-scroll-proportion="1.4294294">
+            <state line="79" column="7" selection-start="3539" selection-end="3539" vertical-scroll-proportion="1.587087">
               <folding />
             </state>
           </provider>
@@ -81,14 +81,14 @@
       <list>
         <option value="$PROJECT_DIR$/Secret.py" />
         <option value="$PROJECT_DIR$/MtGox API info/HistoricDataCapture.py" />
-        <option value="$PROJECT_DIR$/HistoricDataCapture.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/TestGox.py" />
         <option value="$PROJECT_DIR$/MtGox.py" />
         <option value="$USER_HOME$/.PyCharm20/system/python_stubs/-762174762/__builtin__.py" />
         <option value="$PROJECT_DIR$/scratch.py" />
-        <option value="$PROJECT_DIR$/TradeController.py" />
         <option value="$PROJECT_DIR$/HistoricData.py" />
+        <option value="$PROJECT_DIR$/HistoricDataCapture.py" />
+        <option value="$PROJECT_DIR$/TradeController.py" />
       </list>
     </option>
   </component>
@@ -169,7 +169,7 @@
       <recent name="C:\Users\dsyko\Dropbox\Projects\BitBot" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.HistoricData">
+  <component name="RunManager" selected="Python.TradeController">
     <configuration default="false" name="TestGox" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -189,7 +189,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="HistoricData" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="HistoricDataCapture" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -200,7 +200,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <module name="BitBot" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\dsyko\Dropbox\Projects\BitBot\HistoricData.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\dsyko\Dropbox\Projects\BitBot\HistoricDataCapture.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -296,14 +296,14 @@
     </configuration>
     <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.TestGox" />
-      <item index="1" class="java.lang.String" itemvalue="Python.HistoricData" />
+      <item index="1" class="java.lang.String" itemvalue="Python.HistoricDataCapture" />
       <item index="2" class="java.lang.String" itemvalue="Python.TradeController" />
       <item index="3" class="java.lang.String" itemvalue="Python.scratch" />
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.HistoricData" />
-        <item index="1" class="java.lang.String" itemvalue="Python.TradeController" />
+        <item index="0" class="java.lang.String" itemvalue="Python.TradeController" />
+        <item index="1" class="java.lang.String" itemvalue="Python.HistoricDataCapture" />
         <item index="2" class="java.lang.String" itemvalue="Python.scratch" />
         <item index="3" class="java.lang.String" itemvalue="Python.TestGox" />
       </list>
@@ -532,16 +532,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HistoricData.py">
+    <entry file="file://$PROJECT_DIR$/HistoricDataCapture.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="3181" selection-end="3181" vertical-scroll-proportion="0.0">
+        <state line="13" column="26" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TradeController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="42" selection-start="2662" selection-end="2662" vertical-scroll-proportion="1.4294294">
+        <state line="79" column="7" selection-start="3539" selection-end="3539" vertical-scroll-proportion="1.587087">
           <folding />
         </state>
       </provider>
