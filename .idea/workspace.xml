@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1619441c-6294-4b86-a3e9-d57aba9cf822" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MtGox.py" afterPath="$PROJECT_DIR$/MtGox.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TradeController.py" afterPath="$PROJECT_DIR$/TradeController.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BitBot.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365729420792" ignored="false" />
+    <file path="/Dummy.txt" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365754587932" ignored="false" />
     <file path="/MtGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365733703759" ignored="false" />
     <file path="/.gitignore" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365459219239" ignored="false" />
     <file path="/TestGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365463772174" ignored="false" />
     <file path="/Secret.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365329170042" ignored="false" />
     <file path="/Python Console" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382524091" ignored="false" />
     <file path="/HistoricDataCapture.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365401197376" ignored="false" />
-    <file path="/TradeController.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365754258642" ignored="false" />
+    <file path="/TradeController.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365760334401" ignored="false" />
     <file path="/scratch.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365552164528" ignored="false" />
     <file path="/HistoricData.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365581472936" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,9 +45,7 @@
         <entry file="file://$PROJECT_DIR$/MtGox.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="175" column="26" selection-start="6308" selection-end="6319" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1365742562007" expanded="true" signature="1855:2060" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,7 +53,7 @@
       <file leaf-file-name="TradeController.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TradeController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="0" selection-start="3189" selection-end="3189" vertical-scroll-proportion="0.4552058">
+            <state line="61" column="72" selection-start="2837" selection-end="2837" vertical-scroll-proportion="-0.30591258">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
               </folding>
@@ -163,11 +159,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Python" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -394,18 +390,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="1186" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="1186" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328807" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18790218" sideWeight="0.4258002" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1904762" sideWeight="0.7798254" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5741998" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22017458" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -498,9 +494,7 @@
     <entry file="file://$PROJECT_DIR$/MtGox.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1365742562007" expanded="true" signature="1855:2060" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -575,15 +569,13 @@
     <entry file="file://$PROJECT_DIR$/MtGox.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="175" column="26" selection-start="6308" selection-end="6319" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1365742562007" expanded="true" signature="1855:2060" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TradeController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="3189" selection-end="3189" vertical-scroll-proportion="0.4552058">
+        <state line="61" column="72" selection-start="2837" selection-end="2837" vertical-scroll-proportion="-0.30591258">
           <folding>
             <element signature="e#22#34#0" expanded="true" />
           </folding>

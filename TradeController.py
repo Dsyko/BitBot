@@ -22,8 +22,14 @@ class TradeController:
         """
         self.api_interface = api_interface
         self.couch_interface = couch_interface
-        self.log_database = None
         self.run_id = str(run_id)
+        #Check if we have a database by this name on couch, if so append time stamp to name
+        if self.run_id in self.couch_interface:
+            self.run_id += "-" + str(int(time.time() * 1e6))
+        print "Logging trade info in %s db on couchDB" % self.run_id
+        self.log_database = self.couch_interface.create(self.run_id)
+
+
         #Temporary variable to avoid spamming API with requests, del after we use the info
         account_info = api_interface.account_info()
         self.btc_balance = account_info['btc_balance']
@@ -58,23 +64,34 @@ class TradeController:
         #self.recent_price_info = pd.Series(recent_prices, [pd.Timestamp(usecond_time *1000) for usecond_time in recent_times ], name="bitcoinprice")
         self.recent_price_info = pd.Series(recent_prices, recent_times, name="bitcoinprice")
 
-        #Check if we have a database by this name on couch, if so append time stamp to name
-        if self.run_id in self.couch_interface:
-            self.run_id += "-" + str(int(time.time() * 1e6))
-        print "Logging trade info in %s db on couchDB" % self.run_id
-        self.log_database = self.couch_interface.create(self.run_id)
-
         #Convert keys from integers to strings so we can convert to json and save in couchDB
         json_price_info = {str(the_time): the_price for the_time, the_price in self.recent_price_info.to_dict().iteritems()}
-        self.log_database.save({'init_time': int(time.time() * 1e6), 'init_price_info': json_price_info})
+        self.log_database[str(int(time.time() * 1e6))] = {'init_time': int(time.time() * 1e6), 'init_price_info': json_price_info}
         return self.recent_price_info
 
-        #TODO: Log trading start time to DB, keep a last_active variable up to date. log trades etc...
+    #Ohh god it's crashing! Sell it alllll!
+    def sell_sell_sell(self):
+        pass
+        #TODO: check our balances, if we have bitcoin, sell it off
+        #TODO: check status of trade orders, try again if they haven't gone through, throttle according to trading lag
+        #TODO: log our sell to DB
 
+    #Shit we're going to miss out on this huge price jump, buy all the bits coins. The Chickun arises!
+    def buy_buy_buy(self):
+        pass
+        #TODO: check our balances, if we have USD, buy BTC
+        #TODO: check status of trade orders, try again if they haven't gone through, throttle according to trading lag
+        #TODO: log our buy to DB
 
-    #TODO: create a method to be called with newest price information
-    # This method will compute moving average or whatever is desired and then trade BTC according to info
-    # update run_id database with trade decisions, value of accounts, etc
+    #call this function with updates market info, this is where all the decisions are made
+    def market_info_feed(self, market_info, averaging_function, **kwargs ):
+        pass
+        #TODO: Add market_info into our series
+        #TODO: Delete oldest data point in series to keep it small
+        #TODO: Compute averaging function on series
+        #TODO: Compute slope at last 2-4 points
+        #TODO: Use slope, possibly market Depth info, and decide to sell or buy
+
     #update historic db with price info?
 
 #Following code will only be executed if this module is run independently, not when imported. Use it to test the module.
