@@ -9,14 +9,7 @@ from hmac import HMAC
 import base64
 import json
 
-#We need a nonce(one time use number to prevent repeat-requests and copycat attacks) for each API request
-def get_nonce():
-    return int(time.time()*100000)
-
-def sign_data(secret, data):
-    return base64.b64encode(str(HMAC(secret, data, sha512).digest()))
-
-#Decorator function used to catch http errors and retry the request up to 5 times with throttling
+#Decorator function used to catch HTTP errors and retry the request up to 5 times with throttling
 def catch_http_errors(function):
     def catcher(*args, **kwargs):
         num_retries = 0
@@ -38,19 +31,27 @@ def catch_http_errors(function):
 
 class GoxRequester:
     #TODO: Websockets version of this api
+
     def __init__(self, auth_key, auth_secret):
         self.auth_key = auth_key
         self.auth_secret = base64.b64decode(auth_secret)
         self.base = "https://data.mtgox.com/api/2/"
 
+        #We need a nonce(one time use number to prevent repeat-requests and copycat attacks) for each API request
+    def get_nonce(self):
+        return int(time.time()*100000)
+
+    def sign_data(self, data):
+        return base64.b64encode(str(HMAC(self.auth_secret, data, sha512).digest()))
+
     def build_query(self, path, request = None):
         if request is None:
             request = {}
-        request["nonce"] = get_nonce()
+        request["nonce"] = self.get_nonce()
         post_data = urlencode(request)
         headers = {"User-Agent": "BitBot",
                    "Rest-Key": self.auth_key,
-                   "Rest-Sign": sign_data(self.auth_secret, path + chr(0) + post_data)} #API2 uses Path in hash
+                   "Rest-Sign": self.sign_data(path + chr(0) + post_data)} #API2 uses Path in hash
         return post_data, headers
 
     def send_http_request(self, path, args):
@@ -60,13 +61,22 @@ class GoxRequester:
         return json.load(response)
 
     @catch_http_errors
+    def account_info(self):
+        data = self.send_http_request("BTCUSD/money/info", {})
+        #print pretty(data)
+        if data['result'] == "success":
+            return {'login_id': data['data']["Login"],'trade_fee': data['data']["Trade_Fee"], 'btc_balance': float(data['data']["Wallets"]['BTC']['Balance']['value']), 'usd_balance': float(data['data']["Wallets"]['USD']['Balance']['value']), 'api_rights': data['data']["Rights"]}
+        else:
+            return False
+
+    @catch_http_errors
     def trade_order(self, order_type, bitcoins, price = None):
         """
 
         :param order_type: "buy" or "sell"
         :param bitcoins: number of bitcoins
         :param price:  USD price of bitcoins or omit param for market order
-        :return: json value returned by API result success or fail plus data containing ID of order id successful
+        :return: Bool[True if trade order success, otherwise False], String[unique id of trade if successful]
         """
         args = {"amount_int" : int(bitcoins * 1e8)}
         if price is not None:
@@ -75,18 +85,11 @@ class GoxRequester:
             args["type"] = "bid"
         if order_type == "sell":
             args["type"] = "ask"
-
-        if self.send_http_request("BTCUSD/money/order/add", args)['result'] == "success":
-            return True
+        trade_result = self.send_http_request("BTCUSD/money/order/add", args)
+        if trade_result['result'] == "success":
+            return True, trade_result['data']
         else:
-            return False
-    @catch_http_errors
-    def account_info(self):
-        data = self.send_http_request("BTCUSD/money/info", {})
-        if data['result'] == "success":
-            return {'trade_fee': data['data']["Trade_Fee"], 'btc_balance': float(data['data']["Wallets"]['BTC']['Balance']['value']), 'usd_balance': float(data['data']["Wallets"]['USD']['Balance']['value'])}
-        else:
-            return False
+            return False, "No trade added"
 
     @catch_http_errors
     def orders_info(self):
@@ -156,10 +159,35 @@ class GoxRequester:
     def historic_data(self, start_time=None):
         """
 
-        :param start_time: unix time stamp to begin getting 24 hours of data from
+        :param start_time: unix time stamp to begin getting (up to 24 hours of data) from
         """
 
         args = {}
         if start_time is not None:
             args['since'] = start_time
         return self.send_http_request("BTCUSD/money/trades/fetch", args)
+
+#Following code will only be executed if this module is run independently, not when imported. Use it to test the module.
+if __name__ == "__main__":
+
+    import Secret
+
+    def pretty(text):
+        return json.dumps(text, indent = 4, sort_keys = True)
+
+    #Creating instance of our MtGox api interface. Using API key and secret saved in Secret.py
+    Gox = GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
+
+    #Get information on our account
+    print pretty(Gox.account_info())
+
+    #Get current market info
+    print pretty(Gox.market_info())
+
+    """
+    sucessful_order = False
+    while not sucessful_order:
+        sucessful_order = Gox.trade_order("buy", 2.05, 195)[0]
+    print pretty(Gox.orders_info())
+    #print Gox.cancel_order_by_type("sell")
+    """
