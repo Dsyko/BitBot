@@ -51,7 +51,7 @@ class GoxRequester:
         post_data = urlencode(request)
         headers = {"User-Agent": "BitBot",
                    "Rest-Key": self.auth_key,
-                   "Rest-Sign": self.sign_data(path + chr(0) + post_data)} #API2 uses Path in hash
+                   "Rest-Sign": self.sign_data(path + chr(0) + post_data)}
         return post_data, headers
 
     def send_http_request(self, path, args):
@@ -185,9 +185,9 @@ if __name__ == "__main__":
     print pretty(Gox.market_info())
 
     """
-    sucessful_order = False
-    while not sucessful_order:
-        sucessful_order = Gox.trade_order("buy", 2.05, 195)[0]
+    successful_order = False
+    while not successful_order:
+        successful_order = Gox.trade_order("buy", 2.05, 195)[0]
     print pretty(Gox.orders_info())
     #print Gox.cancel_order_by_type("sell")
     """

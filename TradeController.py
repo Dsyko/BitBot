@@ -3,7 +3,7 @@ __author__ = 'dsyko'
 import MtGox
 import Secret
 import couchdb
-import math
+import json
 import time
 import numpy
 import pandas as pd
@@ -22,7 +22,8 @@ class TradeController:
         """
         self.api_interface = api_interface
         self.couch_interface = couch_interface
-        self.run_id = run_id
+        self.log_database = None
+        self.run_id = str(run_id)
         #Temporary variable to avoid spamming API with requests, del after we use the info
         account_info = api_interface.account_info()
         self.btc_balance = account_info['btc_balance']
@@ -39,25 +40,35 @@ class TradeController:
         end_time = trade_start_time
         #Going back 4 times the window size, sometimes there are no trades for a few minutes
         start_time = trade_start_time - (4 * window_size_minutes * 60000000)
-
-        times_in_db = self.couch_interface.view("Prices/time")
+        historic_data = self.couch_interface['bitcoin-historic-data']
+        times_in_db = historic_data.view("Prices/time")
         temp_time_window = times_in_db[start_time:end_time]
 
         #Not enough values in DB. Fuck it we'll do it live, call historicData to get info from GOX into DB
         if len(temp_time_window) < window_size_minutes:
             #TODO: test if this is a live trade or historic test, if historic try reaching farther back in DB before GOX
             print "Grabbing info from Gox only have %d points need %d" % (len(temp_time_window), window_size_minutes)
-            Historic = HistoricDataCapture.HistoricDataCapture(Gox, database)
+            Historic = HistoricDataCapture.HistoricDataCapture(self.api_interface, historic_data)
             Historic.gox_to_couchdb(start_time, end_time, 60 * 1000000)
             temp_time_window = times_in_db[start_time:end_time]
             print "now we have %d points" % len(temp_time_window)
 
         recent_times = [trade_val.key for trade_val in temp_time_window]
         recent_prices = [trade_val.value for trade_val in temp_time_window]
+        #self.recent_price_info = pd.Series(recent_prices, [pd.Timestamp(usecond_time *1000) for usecond_time in recent_times ], name="bitcoinprice")
         self.recent_price_info = pd.Series(recent_prices, recent_times, name="bitcoinprice")
+
+        #Check if we have a database by this name on couch, if so append time stamp to name
+        if self.run_id in self.couch_interface:
+            self.run_id += "-" + str(int(time.time() * 1e6))
+        print "Logging trade info in %s db on couchDB" % self.run_id
+        self.log_database = self.couch_interface.create(self.run_id)
+
+        #Convert keys from integers to strings so we can convert to json and save in couchDB
+        json_price_info = {str(the_time): the_price for the_time, the_price in self.recent_price_info.to_dict().iteritems()}
+        self.log_database.save({'init_time': int(time.time() * 1e6), 'init_price_info': json_price_info})
         return self.recent_price_info
 
-        #TODO: Create db on couch with run_id, save opening price
         #TODO: Log trading start time to DB, keep a last_active variable up to date. log trades etc...
 
 
@@ -71,9 +82,8 @@ if __name__ == "__main__":
 
     Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
     couch = couchdb.Server(Secret.couch_url)
-    database = couch['bitcoin-historic-data']
 
-    Trader = TradeController(Gox, database, "test")
+    Trader = TradeController(Gox, couch, "testing")
     Trader.initialize_price_info(1356393600000000, 40).plot(style='k--')
     show()
 
