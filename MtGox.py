@@ -70,17 +70,17 @@ class GoxRequester:
             return False
 
     @catch_http_errors
-    def trade_order(self, order_type, bitcoins, price = None):
+    def trade_order(self, order_type, num_bitcoins, usd_price = None):
         """
 
         :param order_type: "buy" or "sell"
-        :param bitcoins: number of bitcoins
-        :param price:  USD price of bitcoins or omit param for market order
+        :param num_bitcoins: number of bitcoins
+        :param usd_price:  USD price of bitcoins or omit param for market order
         :return: Bool[True if trade order success, otherwise False], String[unique id of trade if successful]
         """
-        args = {"amount_int" : int(bitcoins * 1e8)}
-        if price is not None:
-            args["price_int"] = int(price * 1e5)
+        args = {"amount_int" : int(num_bitcoins * 1e8)}
+        if usd_price is not None:
+            args["price_int"] = int(usd_price * 1e5)
         if order_type == "buy":
             args["type"] = "bid"
         if order_type == "sell":
