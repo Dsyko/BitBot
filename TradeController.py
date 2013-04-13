@@ -38,10 +38,7 @@ class TradeController:
         self.recent_price_info = pd.Series()
         self.last_trade_attempt = 0
 
-        self.averaging_functions = {
-            "simple_moving": pd.rolling_mean,
-            "exponential_moving": pd.ewma
-        }
+
 
     def initialize_price_info(self, trade_start_time, window_size_minutes, update_from_gox):
 
@@ -56,7 +53,7 @@ class TradeController:
         """
         end_time = trade_start_time
         #Going back 4 times the window size, sometimes there are no trades for a few minutes
-        start_time = trade_start_time - (4 * window_size_minutes * 60000000)
+        start_time = trade_start_time - (2 * window_size_minutes * 60000000)
         historic_data = self.couch_interface['bitcoin-historic-data']
         times_in_db = historic_data.view("Prices/time")
         temp_time_window = times_in_db[start_time:end_time]
@@ -91,8 +88,9 @@ class TradeController:
             self.log_database[str(int(time.time() * 1e6))] = {'trade_added': {'type': order_type, 'num_btc': num_btc, 'usd_price': price}}
         else:
             self.log_database[str(int(time.time() * 1e6))] = {'trade_fail': {'type': order_type,'num_btc': num_btc, 'usd_price': price}}
+        print "trading! trying to %s %d bitcoin" % (order_type, num_btc)
 
-    #Ohh god it's crashing! Sell it alllll!
+    #Ohh god it's crashing! Sell! Sel it alllll!
     #Shit we're going to miss out on this huge price jump, buy all the bits coins. The Chickun arises!
     def trade_trade_trade(self, trade_type):
         #grab account holdings from Gox
@@ -126,14 +124,26 @@ class TradeController:
     def market_info_feed(self, market_info, averaging_function, averaging_window, **kwargs ):
         #Add market_info into our series
         self.recent_price_info.append(pd.Series({market_info['time']: market_info['price']}))
-        #TODO: Delete oldest data point in series to keep it small
+        #Delete oldest data point in series to keep it small
         self.recent_price_info = self.recent_price_info[1:]
         #TODO: Compute averaging function on series
-        zveraged_prices = self.averaging_functions[averaging_function](self.recent_price_info, averaging_window)
+        if averaging_function is "simple_moving":
+            averaged_prices = pd.rolling_mean(market_info, averaging_window)
+        elif averaging_function is "exponential_moving":
+            averaged_prices = pd.ewma(market_info, span=averaging_window)
+
+        if kwargs.get("recursive") is True:
+            recursions_done = 0
+            while recursions_done < kwargs.get("num_recursions"):
+                if averaging_function is "simple_moving":
+                    averaged_prices = pd.rolling_mean(averaged_prices, averaging_window)
+                elif averaging_function is "exponential_moving":
+                    averaged_prices = pd.ewma(averaged_prices, span=averaging_window)
+                recursions_done += 1
+
         #TODO: Compute slope at last 2-4 points
         #TODO: Use slope, possibly market Depth info, and decide to sell or buy
-
-    #update historic db with price info?
+        #update historic db with price info?
 
 #Following code will only be executed if this module is run independently, not when imported. Use it to test the module.
 if __name__ == "__main__":
@@ -142,16 +152,17 @@ if __name__ == "__main__":
     couch = couchdb.Server(Secret.couch_url)
 
     Trader = TradeController(Gox, couch, "testing")
-    window_size = 60
-    init_series = Trader.initialize_price_info(1356393600000000, window_size * 24, False)
+    window_size = 6 * 60
+    init_series = Trader.initialize_price_info(1360749874000000, 60 * 24 * 7, False)
 
 
     #print series
     #print series
     init_series.plot(style='k--')
-    pd.rolling_mean(init_series, window_size).plot(style='b')
-    pd.ewma(init_series, window_size).plot(style='r-')
-    pd.ewma(init_series, span=window_size).plot(style='g-')
+    moving_average = pd.rolling_mean(init_series, window_size)
+    moving_average2 = pd.rolling_mean(moving_average, window_size * 2)
+    moving_average2.plot(style='b')
+    pd.ewma(moving_average2, span=window_size*4).plot(style='g-')
     show()
 
 
