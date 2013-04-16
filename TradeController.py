@@ -141,8 +141,14 @@ class TradeController:
                     averaged_prices = pd.ewma(averaged_prices, span=averaging_window)
                 recursions_done += 1
 
-        #TODO: Compute slope at last 2-4 points
-        #TODO: Use slope, possibly market Depth info, and decide to sell or buy
+        #Compute slope at last 2 points
+        slope = averaged_prices[-2:].diff()[-1:].median()
+
+        #Use slope, possibly market Depth info, and decide to sell or buy
+        if slope > 0:
+            self.trade_trade_trade('buy')
+        else:
+            self.trade_trade_trade('sell')
         #update historic db with price info?
 
 #Following code will only be executed if this module is run independently, not when imported. Use it to test the module.
@@ -155,14 +161,15 @@ if __name__ == "__main__":
     window_size = 6 * 60
     init_series = Trader.initialize_price_info(1360749874000000, 60 * 24 * 7, False)
 
-
     #print series
     #print series
     init_series.plot(style='k--')
     moving_average = pd.rolling_mean(init_series, window_size)
     moving_average2 = pd.rolling_mean(moving_average, window_size * 2)
     moving_average2.plot(style='b')
-    pd.ewma(moving_average2, span=window_size*4).plot(style='g-')
+    (moving_average2.diff() * 1e3).plot(style='g-')
+    print moving_average2[-2:].diff()[-1:].median()
+    #pd.ewma(moving_average2, span=window_size*4).plot(style='g-')
     show()
 
 
