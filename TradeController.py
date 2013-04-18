@@ -54,8 +54,8 @@ class TradeController:
         end_time = trade_start_time
         #Going back 4 times the window size, sometimes there are no trades for a few minutes
         start_time = trade_start_time - (2 * window_size_minutes * 60000000)
-        historic_data = self.couch_interface['bitcoin-historic-data']
-        times_in_db = historic_data.view("Prices/time")
+        historic_data = self.couch_interface[Secret.bitcoin_historic_data_db_name]
+        times_in_db = historic_data.view(Secret.bitcoin_historic_data_view_name)
         temp_time_window = times_in_db[start_time:end_time]
 
         #Not enough values in DB. Fuck it we'll do it live, call historicData to get info from GOX into DB
@@ -120,8 +120,8 @@ class TradeController:
         #TODO: log our sell to DB
 
 
-    #call this function with updates market info, this is where all the decisions are made
-    def market_info_feed(self, market_info, averaging_function, averaging_window, **kwargs ):
+    #call this function with updates to market info, this is where all the decisions are made
+    def market_info_analyzer(self, market_info, averaging_function, averaging_window, **kwargs):
         #Add market_info into our series
         self.recent_price_info.append(pd.Series({market_info['time']: market_info['price']}))
         #Delete oldest data point in series to keep it small
@@ -147,7 +147,7 @@ class TradeController:
         #Use slope, possibly market Depth info, and decide to sell or buy
         if slope > 0:
             self.trade_trade_trade('buy')
-        else:
+        elif slope < 0:
             self.trade_trade_trade('sell')
         #update historic db with price info?
 

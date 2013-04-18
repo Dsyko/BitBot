@@ -28,7 +28,7 @@ class HistoricDataCapture:
         #Get a list of times already in the DB so we don't repeat ourselves
         times_entered_into_db = {}
         #We need to have a view to our couchDB which emits the time as the key in the Map function, mine is saved in Prices/time
-        view_name = "Prices/time"
+        view_name = Secret.bitcoin_historic_data_view_name
         times_in_db = self.couch_interface.view(view_name)
         for single_time in times_in_db[start_time:end_time]:
             times_entered_into_db[single_time.key] = True
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     end_time = 1365336000000000
     #time_interval is in seconds, groups trades together within this interval and averages them to create a single datapoint
     time_interval = 60
-    db_name = 'bitcoin-historic-data'
+    db_name = Secret.bitcoin_historic_data_db_name
     database = couch[db_name]
 
     #Create an instance of HistoricDataCapture Class passing our API and DB interface instances
