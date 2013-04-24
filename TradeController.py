@@ -36,11 +36,10 @@ class TradeController:
         self.trade_fee = account_info['trade_fee']
         del account_info
         self.btc_price = {}
+        self.last_market_info = []
         self.recent_price_info = pd.Series()
         self.last_trade_attempt = 0
         self.seconds_between_trades = 0
-
-
 
     def initialize_price_info(self, trade_start_time, window_size_minutes, update_from_gox):
 
@@ -90,10 +89,10 @@ class TradeController:
             self.log_database[str(int(time.time() * 1e6))] = {'trade_added': {'type': order_type, 'num_btc': num_btc, 'usd_price': price}}
         else:
             self.log_database[str(int(time.time() * 1e6))] = {'trade_fail': {'type': order_type,'num_btc': num_btc, 'usd_price': price}}
-        print "trading! trying to %s %d bitcoin" % (order_type, num_btc)
+        print "trading! trying to %s %.2f bitcoin" % (order_type, num_btc)
 
-    #Ohh god it's crashing! Sell! Sel it alllll!
-    #Shit we're going to miss out on this huge price jump, buy all the bits coins. The Chickun arises!
+    #Ohh god it's crashing! Sell! Sell it alllll!
+    #Shit we're going to miss out on this huge price jump, buy all the bit coins. The Chickun arises!
     def trade_trade_trade(self, trade_type):
         #grab account holdings from Gox
         account_info = self.api_interface.account_info()
@@ -108,9 +107,13 @@ class TradeController:
         #seconds_between_trades = int(self.api_interface.market_lag()) #wait full market lag before trading again
         #check our balance, if we have bitcoin, sell it off, throttle trade attempts using seconds_between_trades
         if currency_to_dump > 0 and (int(time.time() * 1e6) - self.last_trade_attempt) > (self.seconds_between_trades * 1e6):
-            success, trade_id = self.api_interface.trade_order(trade_type, self.btc_balance)
+            if trade_type == 'sell':
+                success, trade_id = self.api_interface.trade_order(trade_type, self.btc_balance)
+            else:
+                success, trade_id = self.api_interface.trade_order(trade_type, (self.usd_balance / self.last_market_info["price"]))
+
             self.last_trade_attempt = int(time.time() * 1e6)
-            self.log_trade_order(self, success, trade_type, self.btc_balance, "market")
+            self.log_trade_order(success, trade_type, self.btc_balance, "market")
 
             #update account holdings from Gox
             account_info = self.api_interface.account_info()
@@ -125,13 +128,14 @@ class TradeController:
     def market_info_analyzer(self, market_info, averaging_function, averaging_window, **kwargs):
         #Add market_info into our series
         self.recent_price_info.append(pd.Series({market_info['time']: market_info['price']}))
+        self.last_market_info = market_info
         #Delete oldest data point in series to keep it small
         self.recent_price_info = self.recent_price_info[1:]
         #Compute averaging function on series
         if averaging_function is "simple_moving":
-            averaged_prices = pd.rolling_mean(market_info, averaging_window)
+            averaged_prices = pd.rolling_mean(self.recent_price_info, averaging_window)
         elif averaging_function is "exponential_moving":
-            averaged_prices = pd.ewma(market_info, span=averaging_window)
+            averaged_prices = pd.ewma(self.recent_price_info, span=averaging_window)
 
         if kwargs.get("recursive") is True:
             recursions_done = 0
@@ -154,16 +158,32 @@ class TradeController:
 
 #Following code will only be executed if this module is run independently, not when imported. Use it to test the module.
 if __name__ == "__main__":
+    import MtGoxHistoric
 
-    Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
     couch = couchdb.Server(Secret.couch_url)
+    db_name = Secret.bitcoin_historic_data_db_name
+    database = couch[db_name]
+    start_time = 1360749874000000
+    end_time = 1363551570000000
+    initial_usd_balance = 100
+    Gox = MtGoxHistoric.HistoricGoxRequester(database, start_time, end_time, initial_usd_balance, 0)
 
-    Trader = TradeController(Gox, couch, "testing")
-    window_size = 6 * 60
-    init_series = Trader.initialize_price_info(1360749874000000, 60 * 24 * 7, False)
+    Trader = TradeController(Gox, couch, "testing-historic")
+    window_size =  60 * 8
+    init_series = Trader.initialize_price_info(start_time, window_size, False)
 
-    #print series
-    #print series
+    print "Initial account balances %d BTC and $%d USD" % (Trader.btc_balance, Trader.usd_balance)
+    market_info = Gox.market_info()
+    while market_info is not False:
+        Trader.market_info_analyzer(market_info, "simple_moving", window_size, recursive=False, num_recursions=0)
+        market_info = Gox.market_info()
+    print "Test Complete!"
+    print "Final account balances %.2f BTC and $%.2f USD" % (Trader.btc_balance, Trader.usd_balance)
+    final_usd_balance = (Trader.btc_balance * Trader.last_market_info["price"])
+    print "Final BTC Holdings worth $%.2f USD" % final_usd_balance
+    print "Profit: $%.2f" % (final_usd_balance - initial_usd_balance)
+    """
+    Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
     init_series.plot(style='k--')
     moving_average = pd.rolling_mean(init_series, window_size)
     moving_average2 = pd.rolling_mean(moving_average, window_size * 2)
@@ -172,5 +192,6 @@ if __name__ == "__main__":
     print moving_average2[-2:].diff()[-1:].median()
     #pd.ewma(moving_average2, span=window_size*4).plot(style='g-')
     show()
+    """
 
 
