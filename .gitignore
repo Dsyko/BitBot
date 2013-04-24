@@ -33,9 +33,10 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+.idea/
 
 #API key/secret containing files
 Secret.py
 
-#Dependencies, large files that don't need to be version controlles
+#Dependencies, large files that don't need to be version controlled
 Dependencies/

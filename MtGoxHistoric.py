@@ -1,4 +1,7 @@
 __author__ = 'dsyko'
+#The purpose of this module is as a drop-in replacement for the MtGox live API interface module. This module takes data
+#from a couchDB containing historic Bitcoin prices so that we can feed the prices to our trading algorithm and
+#test how it would have performed in the past.
 
 #import libraries we'll need
 import time
@@ -19,9 +22,11 @@ class HistoricGoxRequester:
         self.price_list = self.couch_interface[start_time:end_time]
         self.current_price = 0
         self.trade_queue = []
+        self.my_market_info_emitter = self.market_info_emitter()
 
     def execute_trades(self):
         #TODO: Add lag, and slippage simulation ability
+        #TODO: Enforce GOX trade fee
         #check self.trade_queue for trades. If the price is right, execute that trade!
         for order in self.trade_queue:
             if order['type'] == 'buy' and (order['usd_price'] is None or self.current_price <= order['usd_price']):
@@ -49,11 +54,11 @@ class HistoricGoxRequester:
 
         :param order_type: "buy" or "sell"
         :param num_bitcoins: number of bitcoins
-        :param usd_price:  USD price of bitcoins or omit param for market order
+        :param usd_price:  USD price of bitcoins or omit param for "market order"
         :return: Bool[True if trade order success, otherwise False], String[unique id of trade if successful]
         """
-        #Add our trade to the trade queue, the trade queue will be used in execute_trade() to make trades when appropriate
-        order_id = int((time.time()) * 1e6)
+        #Add our trade to the trade queue, the trade queue is in execute_trade() to make trades when appropriate
+        order_id = str((time.time()) * 1e6)
         self.trade_queue.append({'type': order_type, 'num_btc': num_bitcoins, 'usd_price': usd_price, 'order_id': order_id})
         return True, order_id
 
@@ -97,7 +102,7 @@ class HistoricGoxRequester:
 
     def market_info(self):
         #grab info from our market info emitter which is using couchDB to get market data
-        trade_time, trade_price = next(self.market_info_emitter())
+        trade_time, trade_price = next(self.my_market_info_emitter)
         if trade_time is not False:
             return {"time": trade_time, "volume": 0, "price": trade_price, "lag": self.market_lag()}
 
@@ -127,8 +132,32 @@ if __name__ == "__main__":
     Gox = HistoricGoxRequester(database, start_time, end_time, 100, 0)
 
     #Get information on our account
+    print "Account Info:"
     print pretty(Gox.account_info())
 
     #Get current market info
+    print "\nThree market prices:"
     print pretty(Gox.market_info())
+    print pretty(Gox.market_info())
+    current_market_info = Gox.market_info()
+    print pretty(current_market_info)
+
+    #Add buy trade
+    print "Adding trade order to buy $50 worth of BTC"
+    order_success, trade_id = Gox.trade_order("buy", (50 / current_market_info["price"]))
+    if order_success:
+        print "order has UID: %s" % trade_id
+    else:
+        print "Failed to submit order"
+
+    #Get market info, which should execute open trades
+    current_market_info = Gox.market_info()
+
+    #Get information on our account
+    print "Account Info:"
+    print pretty(Gox.account_info())
+
+
+
+
 

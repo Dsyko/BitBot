@@ -22,6 +22,7 @@ class TradeController:
         self.couch_interface = couch_interface
         self.run_id = str(run_id)
 
+
         #Check if we have a database by this name on couch, if so append time stamp to name
         if self.run_id in self.couch_interface:
             self.run_id += "-" + str(int(time.time() * 1e6))
@@ -37,6 +38,7 @@ class TradeController:
         self.btc_price = {}
         self.recent_price_info = pd.Series()
         self.last_trade_attempt = 0
+        self.seconds_between_trades = 0
 
 
 
@@ -103,10 +105,9 @@ class TradeController:
         else:
             currency_to_dump = self.usd_balance
 
-        seconds_between_trades = 60 #one minute between trades
         #seconds_between_trades = int(self.api_interface.market_lag()) #wait full market lag before trading again
         #check our balance, if we have bitcoin, sell it off, throttle trade attempts using seconds_between_trades
-        if currency_to_dump > 0 and (int(time.time() * 1e6) - self.last_trade_attempt) > (seconds_between_trades * 1e6):
+        if currency_to_dump > 0 and (int(time.time() * 1e6) - self.last_trade_attempt) > (self.seconds_between_trades * 1e6):
             success, trade_id = self.api_interface.trade_order(trade_type, self.btc_balance)
             self.last_trade_attempt = int(time.time() * 1e6)
             self.log_trade_order(self, success, trade_type, self.btc_balance, "market")
@@ -126,7 +127,7 @@ class TradeController:
         self.recent_price_info.append(pd.Series({market_info['time']: market_info['price']}))
         #Delete oldest data point in series to keep it small
         self.recent_price_info = self.recent_price_info[1:]
-        #TODO: Compute averaging function on series
+        #Compute averaging function on series
         if averaging_function is "simple_moving":
             averaged_prices = pd.rolling_mean(market_info, averaging_window)
         elif averaging_function is "exponential_moving":
