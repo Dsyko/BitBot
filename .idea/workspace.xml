@@ -16,8 +16,8 @@
     <file path="/TradeController.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366620375302" ignored="false" />
     <file path="/scratch.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365552164528" ignored="false" />
     <file path="/HistoricData.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365581472936" ignored="false" />
-    <file path="/MtGoxHistoric.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366785492337" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366785545913" ignored="false" />
+    <file path="/MtGoxHistoric.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366786239225" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366786272317" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="MtGoxHistoric.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MtGoxHistoric.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="55" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.18251534">
+            <state line="44" column="34" selection-start="2158" selection-end="2158" vertical-scroll-proportion="0.83435583">
               <folding />
             </state>
           </provider>
@@ -430,7 +430,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328807" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297769" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297769" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -606,7 +606,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MtGoxHistoric.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="55" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.18251534">
+        <state line="44" column="34" selection-start="2158" selection-end="2158" vertical-scroll-proportion="0.83435583">
           <folding />
         </state>
       </provider>

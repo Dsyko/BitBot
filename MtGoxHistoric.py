@@ -30,15 +30,17 @@ class HistoricGoxRequester:
         #check self.trade_queue for trades. If the price is right, execute that trade!
         for order in self.trade_queue:
             if order['type'] == 'buy' and (order['usd_price'] is None or self.current_price <= order['usd_price']):
-                self.btc_balance += order['num_btc']
-                self.btc_balance -= order['num_btc'] * (self.trade_fee / 100)
-                self.usd_balance -= self.current_price * order['num_btc']
-                self.trade_queue.remove(order)
+                if self.usd_balance >= self.current_price * order['num_btc']:
+                    self.btc_balance += order['num_btc']
+                    self.btc_balance -= order['num_btc'] * (self.trade_fee / 100)
+                    self.usd_balance -= self.current_price * order['num_btc']
+                    self.trade_queue.remove(order)
             elif order['type'] == 'sell' and (order['usd_price'] is None or self.current_price >= order['usd_price']):
-                self.btc_balance -= order['num_btc']
-                self.usd_balance += self.current_price * order['num_btc']
-                self.usd_balance -= self.usd_balance * (self.trade_fee / 100)
-                self.trade_queue.remove(order)
+                if self.btc_balance >= order['num_btc']:
+                    self.btc_balance -= order['num_btc']
+                    self.usd_balance += self.current_price * order['num_btc']
+                    self.usd_balance -= self.usd_balance * (self.trade_fee / 100)
+                    self.trade_queue.remove(order)
 
     def market_info_emitter(self):
         for price in self.price_list:
@@ -145,12 +147,24 @@ if __name__ == "__main__":
     print pretty(current_market_info)
 
     #Add buy trade
-    print "Adding trade order to buy $50 worth of BTC"
+    print "Adding trade order to buy $50 worth of BTC at market price"
     order_success, trade_id = Gox.trade_order("buy", (50 / current_market_info["price"]))
     if order_success:
         print "order has UID: %s" % trade_id
     else:
         print "Failed to submit order"
+
+    print "Adding trade order to sell .1  BTC at $1000:"
+    order_success, trade_id = Gox.trade_order("sell", .1, 1000)
+    if order_success:
+        print "order has UID: %s" % trade_id
+    else:
+        print "Failed to submit order"
+
+    #Get trade orders
+    print "Open orders:"
+    print pretty(Gox.orders_info())
+
 
     #Get market info, which should execute open trades
     current_market_info = Gox.market_info()
@@ -158,6 +172,12 @@ if __name__ == "__main__":
     #Get information on our account
     print "Account Info:"
     print pretty(Gox.account_info())
+
+    #Get trade orders
+    print "Open orders:"
+    print pretty(Gox.orders_info())
+
+
 
 
 
