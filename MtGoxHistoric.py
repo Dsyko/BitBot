@@ -23,19 +23,21 @@ class HistoricGoxRequester:
         self.current_price = 0
         self.trade_queue = []
         self.my_market_info_emitter = self.market_info_emitter()
+        self.trade_fee = 0.6
 
     def execute_trades(self):
         #TODO: Add lag, and slippage simulation ability
-        #TODO: Enforce GOX trade fee
         #check self.trade_queue for trades. If the price is right, execute that trade!
         for order in self.trade_queue:
             if order['type'] == 'buy' and (order['usd_price'] is None or self.current_price <= order['usd_price']):
                 self.btc_balance += order['num_btc']
+                self.btc_balance -= order['num_btc'] * (self.trade_fee / 100)
                 self.usd_balance -= self.current_price * order['num_btc']
                 self.trade_queue.remove(order)
             elif order['type'] == 'sell' and (order['usd_price'] is None or self.current_price >= order['usd_price']):
                 self.btc_balance -= order['num_btc']
                 self.usd_balance += self.current_price * order['num_btc']
+                self.usd_balance -= self.usd_balance * (self.trade_fee / 100)
                 self.trade_queue.remove(order)
 
     def market_info_emitter(self):
@@ -47,7 +49,7 @@ class HistoricGoxRequester:
         yield False, False
 
     def account_info(self):
-        return {'login_id': 'historic', 'trade_fee': 0.6, 'btc_balance': self.btc_balance, 'usd_balance': self.usd_balance, 'api_rights': ["get_info", "trade"]}
+        return {'login_id': 'historic', 'trade_fee': self.trade_fee, 'btc_balance': self.btc_balance, 'usd_balance': self.usd_balance, 'api_rights': ["get_info", "trade"]}
 
     def trade_order(self, order_type, num_bitcoins, usd_price = None):
         """

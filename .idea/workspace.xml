@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1619441c-6294-4b86-a3e9-d57aba9cf822" name="Default" comment="Copy Pasta Gox Api interface from MtGox Wiki">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MtGoxHistoric.py" afterPath="$PROJECT_DIR$/MtGoxHistoric.py" />
     </list>
     <ignored path="BitBot.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366785040698" ignored="false" />
+    <file path="/Dummy.txt" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366785546280" ignored="false" />
     <file path="/MtGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365733703759" ignored="false" />
     <file path="/.gitignore" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366785173414" ignored="false" />
     <file path="/TestGox.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365463772174" ignored="false" />
@@ -17,7 +16,8 @@
     <file path="/TradeController.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366620375302" ignored="false" />
     <file path="/scratch.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365552164528" ignored="false" />
     <file path="/HistoricData.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365581472936" ignored="false" />
-    <file path="/MtGoxHistoric.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366785001569" ignored="false" />
+    <file path="/MtGoxHistoric.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366785492337" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366785545913" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="MtGoxHistoric.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MtGoxHistoric.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="52" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.5879699">
+            <state line="28" column="55" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.18251534">
               <folding />
             </state>
           </provider>
@@ -109,8 +109,8 @@
         <option value="$PROJECT_DIR$/Secret.py" />
         <option value="$PROJECT_DIR$/HistoricDataCapture.py" />
         <option value="$PROJECT_DIR$/TradeController.py" />
-        <option value="$PROJECT_DIR$/MtGoxHistoric.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/MtGoxHistoric.py" />
       </list>
     </option>
   </component>
@@ -606,7 +606,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MtGoxHistoric.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="52" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.5879699">
+        <state line="28" column="55" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.18251534">
           <folding />
         </state>
       </provider>
