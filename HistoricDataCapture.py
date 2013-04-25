@@ -73,8 +73,8 @@ if __name__ == "__main__":
     couch = couchdb.Server(Secret.couch_url)
 
     #Start time and end time create bound which trade data will be added to our database
-    start_time = 1365292800000000
-    end_time = 1365336000000000
+    start_time = 1364190193000000
+    end_time = 1365292800000000
     #time_interval is in seconds, groups trades together within this interval and averages them to create a single datapoint
     time_interval = 60
     db_name = Secret.bitcoin_historic_data_db_name

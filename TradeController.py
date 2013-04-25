@@ -108,7 +108,7 @@ class TradeController:
 
         #seconds_between_trades = int(self.api_interface.market_lag()) #wait full market lag before trading again
         #check our balance, if we have bitcoin, sell it off, throttle trade attempts using seconds_between_trades
-        if currency_to_dump > 0 and (int(time.time() * 1e6) - self.last_trade_attempt) > (self.seconds_between_trades * 1e6):
+        if currency_to_dump > .01 and (int(time.time() * 1e6) - self.last_trade_attempt) > (self.seconds_between_trades * 1e6):
             #print "Trying to %s with BTC: %.2f USD: %.2f and price %.2f" % (trade_type, self.btc_balance, self.usd_balance, self.last_market_info["price"])
 
             if trade_type == 'sell':
@@ -134,11 +134,15 @@ class TradeController:
     #call this function with updates to market info, this is where all the decisions are made
     def market_info_analyzer(self, market_info, averaging_function, averaging_window, **kwargs):
         #Add market_info into our series
-        self.recent_price_info.append(pd.Series({market_info['time']: market_info['price']}))
-        self.complete_series.append(pd.Series({market_info['time']: market_info['price']}))
+        value_to_add = pd.Series([market_info['price']], [market_info['time']])
+        self.recent_price_info = self.recent_price_info.append(value_to_add)
+        #print self.recent_price_info.count()
+        #print value_to_add
         self.last_market_info = market_info
+
         #Delete oldest data point in series to keep it small
         self.recent_price_info = self.recent_price_info[1:]
+
         #Compute averaging function on series
         if averaging_function is "simple_moving":
             averaged_prices = pd.rolling_mean(self.recent_price_info, averaging_window)
@@ -155,7 +159,7 @@ class TradeController:
                 recursions_done += 1
 
         #Compute slope at last 2 points
-        slope = averaged_prices[-2:].diff()[-1:].median()
+        slope = (averaged_prices[-2:].diff()[-1:].median())
 
         #Use slope, possibly market Depth info, and decide to sell or buy
         if slope > 0:
@@ -171,24 +175,25 @@ if __name__ == "__main__":
     couch = couchdb.Server(Secret.couch_url)
     db_name = Secret.bitcoin_historic_data_db_name
     database = couch[db_name]
-    start_time = 1360749874000000
-    end_time = 1363551570000000
+    start_time = 1364708593000000
+    end_time = 1365292800000000
     initial_usd_balance = 100
     Gox = MtGoxHistoric.HistoricGoxRequester(database, start_time, end_time, initial_usd_balance, 0)
 
     Trader = TradeController(Gox, couch, "testing-historic")
-    window_size =  60 * 8
+    window_size =  60
     init_series = Trader.initialize_price_info(start_time, window_size, False)
 
     print "Initial account balances %d BTC and $%d USD" % (Trader.btc_balance, Trader.usd_balance)
     market_info = Gox.market_info()
+    opening_price = market_info['price']
     while market_info is not False:
         Trader.market_info_analyzer(market_info, "simple_moving", window_size, recursive=False, num_recursions=0)
         market_info = Gox.market_info()
     print "Test Complete!"
     print "Final account balances %.2f BTC and $%.2f USD" % (Trader.btc_balance, Trader.usd_balance)
-    final_usd_balance = (Trader.btc_balance * Trader.last_market_info["price"])
-    print "Final BTC Holdings worth $%.2f USD" % final_usd_balance
+    final_usd_balance = Trader.usd_balance + (Trader.btc_balance * Trader.last_market_info["price"])
+    print "Final Holdings worth $%.2f USD vs Buy and Hold $%.2f" % (final_usd_balance, opening_price)
     print "Profit: $%.2f" % (final_usd_balance - initial_usd_balance)
 
     #Trader.recent_price_info.plot(style='k--')
