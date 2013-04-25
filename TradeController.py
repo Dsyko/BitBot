@@ -21,6 +21,7 @@ class TradeController:
         self.api_interface = api_interface
         self.couch_interface = couch_interface
         self.run_id = str(run_id)
+        self.complete_series = pd.Series()
 
 
         #Check if we have a database by this name on couch, if so append time stamp to name
@@ -84,7 +85,7 @@ class TradeController:
         self.log_database[str(int(time.time() * 1e6))] = {'init_time': int(time.time() * 1e6), 'init_price_info': json_price_info}
         return self.recent_price_info
 
-    def log_trade_order(self, result, order_type,  num_btc, price):
+    def log_trade_order(self, result, order_type, num_btc, price):
         if result:
             self.log_database[str(int(time.time() * 1e6))] = {'trade_added': {'type': order_type, 'num_btc': num_btc, 'usd_price': price}}
         else:
@@ -99,6 +100,7 @@ class TradeController:
         self.btc_balance = account_info['btc_balance']
         self.usd_balance = account_info['usd_balance']
 
+
         if trade_type == 'sell':
             currency_to_dump = self.btc_balance
         else:
@@ -107,13 +109,18 @@ class TradeController:
         #seconds_between_trades = int(self.api_interface.market_lag()) #wait full market lag before trading again
         #check our balance, if we have bitcoin, sell it off, throttle trade attempts using seconds_between_trades
         if currency_to_dump > 0 and (int(time.time() * 1e6) - self.last_trade_attempt) > (self.seconds_between_trades * 1e6):
+            #print "Trying to %s with BTC: %.2f USD: %.2f and price %.2f" % (trade_type, self.btc_balance, self.usd_balance, self.last_market_info["price"])
+
             if trade_type == 'sell':
                 success, trade_id = self.api_interface.trade_order(trade_type, self.btc_balance)
+                self.log_trade_order(success, trade_type, self.btc_balance, "market")
             else:
-                success, trade_id = self.api_interface.trade_order(trade_type, (self.usd_balance / self.last_market_info["price"]))
+                num_btc = (self.usd_balance / self.last_market_info["price"])
+                success, trade_id = self.api_interface.trade_order(trade_type, num_btc)
+                self.log_trade_order(success, trade_type, num_btc, "market")
 
             self.last_trade_attempt = int(time.time() * 1e6)
-            self.log_trade_order(success, trade_type, self.btc_balance, "market")
+
 
             #update account holdings from Gox
             account_info = self.api_interface.account_info()
@@ -128,6 +135,7 @@ class TradeController:
     def market_info_analyzer(self, market_info, averaging_function, averaging_window, **kwargs):
         #Add market_info into our series
         self.recent_price_info.append(pd.Series({market_info['time']: market_info['price']}))
+        self.complete_series.append(pd.Series({market_info['time']: market_info['price']}))
         self.last_market_info = market_info
         #Delete oldest data point in series to keep it small
         self.recent_price_info = self.recent_price_info[1:]
@@ -182,6 +190,10 @@ if __name__ == "__main__":
     final_usd_balance = (Trader.btc_balance * Trader.last_market_info["price"])
     print "Final BTC Holdings worth $%.2f USD" % final_usd_balance
     print "Profit: $%.2f" % (final_usd_balance - initial_usd_balance)
+
+    #Trader.recent_price_info.plot(style='k--')
+    #pd.rolling_mean(Trader.complete_series, window_size).plot(style='b')
+    #show()
     """
     Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
     init_series.plot(style='k--')
