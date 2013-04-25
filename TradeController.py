@@ -136,8 +136,7 @@ class TradeController:
         #Add market_info into our series
         value_to_add = pd.Series([market_info['price']], [market_info['time']])
         self.recent_price_info = self.recent_price_info.append(value_to_add)
-        #print self.recent_price_info.count()
-        #print value_to_add
+        self.complete_series = self.complete_series.append(value_to_add)
         self.last_market_info = market_info
 
         #Delete oldest data point in series to keep it small
@@ -181,24 +180,26 @@ if __name__ == "__main__":
     Gox = MtGoxHistoric.HistoricGoxRequester(database, start_time, end_time, initial_usd_balance, 0)
 
     Trader = TradeController(Gox, couch, "testing-historic")
-    window_size =  60
+    window_size =  60 * 40
     init_series = Trader.initialize_price_info(start_time, window_size, False)
 
     print "Initial account balances %d BTC and $%d USD" % (Trader.btc_balance, Trader.usd_balance)
     market_info = Gox.market_info()
     opening_price = market_info['price']
     while market_info is not False:
-        Trader.market_info_analyzer(market_info, "simple_moving", window_size, recursive=False, num_recursions=0)
+        Trader.market_info_analyzer(market_info, "exponential_moving", window_size, recursive=True, num_recursions=2)
+        final_price = market_info['price']
         market_info = Gox.market_info()
     print "Test Complete!"
     print "Final account balances %.2f BTC and $%.2f USD" % (Trader.btc_balance, Trader.usd_balance)
     final_usd_balance = Trader.usd_balance + (Trader.btc_balance * Trader.last_market_info["price"])
-    print "Final Holdings worth $%.2f USD vs Buy and Hold $%.2f" % (final_usd_balance, opening_price)
+    print "Final Holdings worth $%.2f USD vs Buy and Hold $%.2f" % (final_usd_balance, (initial_usd_balance/opening_price) * final_price)
     print "Profit: $%.2f" % (final_usd_balance - initial_usd_balance)
 
-    #Trader.recent_price_info.plot(style='k--')
-    #pd.rolling_mean(Trader.complete_series, window_size).plot(style='b')
-    #show()
+    Trader.complete_series.plot(style='k--')
+    pd.rolling_mean(Trader.complete_series, window_size).plot(style='b')
+    show()
+
     """
     Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
     init_series.plot(style='k--')

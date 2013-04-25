@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1619441c-6294-4b86-a3e9-d57aba9cf822" name="Default" comment="Copy Pasta Gox Api interface from MtGox Wiki">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricDataCapture.py" afterPath="$PROJECT_DIR$/HistoricDataCapture.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TradeController.py" afterPath="$PROJECT_DIR$/TradeController.py" />
     </list>
     <ignored path="BitBot.iws" />
@@ -14,7 +13,7 @@
     <file path="/Secret.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366260192505" ignored="false" />
     <file path="/Python Console" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365382524091" ignored="false" />
     <file path="/HistoricDataCapture.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366260634997" ignored="false" />
-    <file path="/TradeController.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366872686751" ignored="false" />
+    <file path="/TradeController.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366881009898" ignored="false" />
     <file path="/scratch.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365552164528" ignored="false" />
     <file path="/HistoricData.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1365581472936" ignored="false" />
     <file path="/MtGoxHistoric.py" changelist="1619441c-6294-4b86-a3e9-d57aba9cf822" time="1366786239225" ignored="false" />
@@ -58,7 +57,7 @@
       <file leaf-file-name="TradeController.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TradeController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="33" selection-start="5571" selection-end="5571" vertical-scroll-proportion="0.5870871">
+            <state line="195" column="136" selection-start="9980" selection-end="9980" vertical-scroll-proportion="0.6426426">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
               </folding>
@@ -419,7 +418,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="1186" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="1186" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -605,7 +604,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TradeController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="33" selection-start="5571" selection-end="5571" vertical-scroll-proportion="0.5870871">
+        <state line="195" column="136" selection-start="9980" selection-end="9980" vertical-scroll-proportion="0.6426426">
           <folding>
             <element signature="e#22#34#0" expanded="true" />
           </folding>
