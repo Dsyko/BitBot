@@ -6,7 +6,7 @@ import couchdb
 import time
 import pandas as pd
 import HistoricDataCapture
-from pylab import plot, ylim, xlim, show, xlabel, ylabel, grid
+#from pylab import plot, ylim, xlim, show, xlabel, ylabel, grid
 
 
 
@@ -147,6 +147,7 @@ class TradeController:
             averaged_prices = pd.rolling_mean(self.recent_price_info, averaging_window)
         elif averaging_function is "exponential_moving":
             averaged_prices = pd.ewma(self.recent_price_info, span=averaging_window)
+            averaged_prices_2 = pd.ewma(self.recent_price_info, span=(averaging_window/4))
 
         if kwargs.get("recursive") is True:
             recursions_done = 0
@@ -158,7 +159,12 @@ class TradeController:
                 recursions_done += 1
 
         #Compute slope at last 2 points
-        slope = (averaged_prices[-2:].diff()[-1:].median())
+        #slope = (averaged_prices[-2:].diff()[-1:].median())
+
+        #Computer Difference between ewma
+        value_one = (averaged_prices[-1:].median())
+        value_two = (averaged_prices_2[-1:].median())
+        slope = value_one - value_two
 
         #Use slope, possibly market Depth info, and decide to sell or buy
         if slope > 0:
@@ -180,14 +186,14 @@ if __name__ == "__main__":
     Gox = MtGoxHistoric.HistoricGoxRequester(database, start_time, end_time, initial_usd_balance, 0)
 
     Trader = TradeController(Gox, couch, "testing-historic")
-    window_size =  60 * 40
+    window_size = 40
     init_series = Trader.initialize_price_info(start_time, window_size, False)
 
     print "Initial account balances %d BTC and $%d USD" % (Trader.btc_balance, Trader.usd_balance)
     market_info = Gox.market_info()
     opening_price = market_info['price']
     while market_info is not False:
-        Trader.market_info_analyzer(market_info, "exponential_moving", window_size, recursive=True, num_recursions=2)
+        Trader.market_info_analyzer(market_info, "exponential_moving", window_size, recursive=False, num_recursions=0)
         final_price = market_info['price']
         market_info = Gox.market_info()
     print "Test Complete!"
@@ -196,9 +202,10 @@ if __name__ == "__main__":
     print "Final Holdings worth $%.2f USD vs Buy and Hold $%.2f" % (final_usd_balance, (initial_usd_balance/opening_price) * final_price)
     print "Profit: $%.2f" % (final_usd_balance - initial_usd_balance)
 
-    Trader.complete_series.plot(style='k--')
-    pd.rolling_mean(Trader.complete_series, window_size).plot(style='b')
-    show()
+    #Trader.complete_series.plot(style='k--')
+    #pd.ewma(Trader.complete_series, span=10).plot(style='b')
+    #pd.ewma(Trader.complete_series, span=(40)).plot(style='g')
+    #show()
 
     """
     Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
