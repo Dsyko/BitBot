@@ -1,0 +1,1 @@
+worker: TradeController.py
