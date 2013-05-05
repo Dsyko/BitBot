@@ -179,7 +179,7 @@ if __name__ == "__main__":
     db_name = bitcoin_historic_data_db_name
     database = couch[db_name]
     start_time = 1364708593000000
-    end_time = 1365292800000000
+    end_time = 1364774400000000
     initial_usd_balance = 100
     Gox = MtGoxHistoric.HistoricGoxRequester(database, start_time, end_time, initial_usd_balance, 0)
 
