@@ -1,17 +1,17 @@
 __author__ = 'dsyko'
 
 import MtGox
-import Secret
 import json
 import couchdb
 import time
+from GetSecrets import gox_api_key, gox_auth_secret, couch_url, bitcoin_historic_data_db_name, bitcoin_historic_data_view_name
 
 def pretty(text):
     return json.dumps(text, indent = 4, sort_keys = True)
 
-Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
-couch = couchdb.Server(Secret.couch_url)
-database = couch['bitcoin-historic-data']
+Gox = MtGox.GoxRequester(gox_api_key, gox_auth_secret)
+couch = couchdb.Server(couch_url)
+database = couch[bitcoin_historic_data_db_name]
 
 #print Gox.perform("BTCUSD/money/ticker", "")
 

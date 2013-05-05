@@ -6,8 +6,9 @@ __author__ = 'dsyko'
 #import libraries we'll need
 import time
 import json
-import Secret
 import couchdb
+from GetSecrets import couch_url, bitcoin_historic_data_db_name, bitcoin_historic_data_view_name
+
 
 
 class HistoricGoxRequester:
@@ -18,7 +19,7 @@ class HistoricGoxRequester:
         self.current_time = start_time
         self.usd_balance = usd_balance
         self.btc_balance = btc_balance
-        self.couch_interface = couch_database.view(Secret.bitcoin_historic_data_view_name)
+        self.couch_interface = couch_database.view(bitcoin_historic_data_view_name)
         self.price_list = self.couch_interface[start_time:end_time]
         self.current_price = 0
         self.trade_queue = []
@@ -128,8 +129,8 @@ if __name__ == "__main__":
         return json.dumps(text, indent = 4, sort_keys = True)
 
     #Creating instance of our historic prices from MtGox api interface.
-    couch = couchdb.Server(Secret.couch_url)
-    database = couch[Secret.bitcoin_historic_data_db_name]
+    couch = couchdb.Server(couch_url)
+    database = couch[bitcoin_historic_data_db_name]
     start_time = 1365292800000000
     end_time = 1365336000000000
 

@@ -1,14 +1,12 @@
 __author__ = 'dsyko'
 
 import MtGox
-import Secret
 import couchdb
 import time
 import pandas as pd
 import HistoricDataCapture
+from GetSecrets import gox_api_key, gox_auth_secret, couch_url, bitcoin_historic_data_db_name, bitcoin_historic_data_view_name
 #from pylab import plot, ylim, xlim, show, xlabel, ylabel, grid
-
-
 
 class TradeController:
     def __init__(self, api_interface, couch_interface, run_id):
@@ -56,8 +54,8 @@ class TradeController:
         end_time = trade_start_time
         #Going back 4 times the window size, sometimes there are no trades for a few minutes
         start_time = trade_start_time - (2 * window_size_minutes * 60000000)
-        historic_data = self.couch_interface[Secret.bitcoin_historic_data_db_name]
-        times_in_db = historic_data.view(Secret.bitcoin_historic_data_view_name)
+        historic_data = self.couch_interface[bitcoin_historic_data_db_name]
+        times_in_db = historic_data.view(bitcoin_historic_data_view_name)
         temp_time_window = times_in_db[start_time:end_time]
 
         #Not enough values in DB. Fuck it we'll do it live, call historicData to get info from GOX into DB
@@ -177,8 +175,8 @@ class TradeController:
 if __name__ == "__main__":
     import MtGoxHistoric
 
-    couch = couchdb.Server(Secret.couch_url)
-    db_name = Secret.bitcoin_historic_data_db_name
+    couch = couchdb.Server(couch_url)
+    db_name = bitcoin_historic_data_db_name
     database = couch[db_name]
     start_time = 1364708593000000
     end_time = 1365292800000000
@@ -208,7 +206,7 @@ if __name__ == "__main__":
     #show()
 
     """
-    Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
+    Gox = MtGox.GoxRequester(gox_api_key, gox_auth_secret)
     init_series.plot(style='k--')
     moving_average = pd.rolling_mean(init_series, window_size)
     moving_average2 = pd.rolling_mean(moving_average, window_size * 2)

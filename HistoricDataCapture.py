@@ -1,11 +1,12 @@
 __author__ = 'dsyko'
 
 import MtGox
-import Secret
 import json
 import couchdb
 import math
 import time
+from GetSecrets import gox_api_key, gox_auth_secret, couch_url, bitcoin_historic_data_db_name, bitcoin_historic_data_view_name
+
 
 
 def pretty(text):
@@ -28,7 +29,7 @@ class HistoricDataCapture:
         #Get a list of times already in the DB so we don't repeat ourselves
         times_entered_into_db = {}
         #We need to have a view to our couchDB which emits the time as the key in the Map function, mine is saved in Prices/time
-        view_name = Secret.bitcoin_historic_data_view_name
+        view_name = bitcoin_historic_data_view_name
         times_in_db = self.couch_interface.view(view_name)
         for single_time in times_in_db[start_time:end_time]:
             times_entered_into_db[single_time.key] = True
@@ -68,17 +69,16 @@ class HistoricDataCapture:
 if __name__ == "__main__":
 
     #Creating instance of our MtGox api interface. Using API key and secret saved in Secret.py
-    Gox = MtGox.GoxRequester(Secret.gox_api_key, Secret.gox_auth_secret)
+    Gox = MtGox.GoxRequester(gox_api_key, gox_auth_secret)
     #Creating instance of our couchDB interface, using url(string) with login and pass saved in Secret.py
-    couch = couchdb.Server(Secret.couch_url)
+    couch = couchdb.Server(couch_url)
 
     #Start time and end time create bound which trade data will be added to our database
     start_time = 1364190193000000
     end_time = 1365292800000000
     #time_interval is in seconds, groups trades together within this interval and averages them to create a single datapoint
     time_interval = 60
-    db_name = Secret.bitcoin_historic_data_db_name
-    database = couch[db_name]
+    database = couch[bitcoin_historic_data_db_name]
 
     #Create an instance of HistoricDataCapture Class passing our API and DB interface instances
     TestHistoric = HistoricDataCapture(Gox, database)
