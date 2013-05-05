@@ -74,11 +74,12 @@ if __name__ == "__main__":
     couch = couchdb.Server(couch_url)
 
     #Start time and end time create bound which trade data will be added to our database
-    start_time = 1364190193000000
-    end_time = 1365292800000000
+    start_time = 1365292800000000
+    end_time = 1365336000000000
     #time_interval is in seconds, groups trades together within this interval and averages them to create a single datapoint
     time_interval = 60
-    database = couch[bitcoin_historic_data_db_name]
+    db_name = bitcoin_historic_data_db_name
+    database = couch[db_name]
 
     #Create an instance of HistoricDataCapture Class passing our API and DB interface instances
     TestHistoric = HistoricDataCapture(Gox, database)
