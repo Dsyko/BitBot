@@ -36,7 +36,7 @@ nosetests.xml
 .idea/
 
 #API key/secret containing files
-#Secret.py
+Secret.py
 
 #Dependencies, large files that don't need to be version controlled
 Dependencies/
