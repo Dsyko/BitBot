@@ -40,3 +40,5 @@ Secret.py
 
 #Dependencies, large files that don't need to be version controlled
 Dependencies/
+
+.idea/*
