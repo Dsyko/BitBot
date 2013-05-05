@@ -1,1 +1,1 @@
-worker: TradeController.py
+worker: python TradeController.py
