@@ -1,0 +1,11 @@
+{
+	"name": "bitbot-couchapp",
+	"version": "0.0.1",
+	"description": "Bitbot Trade Interface",
+	"attachments": ["index.html"],
+	"modules": ["lib"],
+	"dependencies": {
+		"attachments": null,
+		"modules": null
+	}
+}

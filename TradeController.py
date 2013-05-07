@@ -6,7 +6,7 @@ import time
 import pandas as pd
 import HistoricDataCapture
 from GetSecrets import gox_api_key, gox_auth_secret, couch_url, bitcoin_historic_data_db_name, bitcoin_historic_data_view_name
-#from pylab import plot, ylim, xlim, show, xlabel, ylabel, grid
+from pylab import plot, ylim, xlim, show, xlabel, ylabel, grid
 
 class TradeController:
     def __init__(self, api_interface, couch_interface, run_id):
@@ -140,36 +140,38 @@ class TradeController:
         #Delete oldest data point in series to keep it small
         self.recent_price_info = self.recent_price_info[1:]
 
-        #Compute averaging function on series
-        if averaging_function is "simple_moving":
-            averaged_prices = pd.rolling_mean(self.recent_price_info, averaging_window)
-        elif averaging_function is "exponential_moving":
-            averaged_prices = pd.ewma(self.recent_price_info, span=averaging_window)
-            averaged_prices_2 = pd.ewma(self.recent_price_info, span=(averaging_window/4))
+        execthisstring = """#Compute averaging function on series
+if averaging_function is 'simple_moving':
+    averaged_prices = pd.rolling_mean(self.recent_price_info, averaging_window)
+elif averaging_function is 'exponential_moving':
+    averaged_prices = pd.ewma(self.recent_price_info, span=averaging_window)
+    averaged_prices_2 = pd.ewma(self.recent_price_info, span=(averaging_window/4))
 
-        if kwargs.get("recursive") is True:
-            recursions_done = 0
-            while recursions_done < kwargs.get("num_recursions"):
-                if averaging_function is "simple_moving":
-                    averaged_prices = pd.rolling_mean(averaged_prices, averaging_window)
-                elif averaging_function is "exponential_moving":
-                    averaged_prices = pd.ewma(averaged_prices, span=averaging_window)
-                recursions_done += 1
+if kwargs.get("recursive") is True:
+    recursions_done = 0
+    while recursions_done < kwargs.get('num_recursions'):
+        if averaging_function is 'simple_moving':
+            averaged_prices = pd.rolling_mean(averaged_prices, averaging_window)
+        elif averaging_function is 'exponential_moving':
+            averaged_prices = pd.ewma(averaged_prices, span=averaging_window)
+        recursions_done += 1
 
-        #Compute slope at last 2 points
-        #slope = (averaged_prices[-2:].diff()[-1:].median())
+#Compute slope at last 2 points
+#slope = (averaged_prices[-2:].diff()[-1:].median())
 
-        #Computer Difference between ewma
-        value_one = (averaged_prices[-1:].median())
-        value_two = (averaged_prices_2[-1:].median())
-        slope = value_one - value_two
+#Computer Difference between ewma
+value_one = (averaged_prices[-1:].median())
+value_two = (averaged_prices_2[-1:].median())
+slope = value_one - value_two
 
-        #Use slope, possibly market Depth info, and decide to sell or buy
-        if slope > 0:
-            self.trade_trade_trade('buy')
-        elif slope < 0:
-            self.trade_trade_trade('sell')
-        #update historic db with price info?
+#Use slope, possibly market Depth info, and decide to sell or buy
+if slope > 0:
+    self.trade_trade_trade('buy')
+elif slope < 0:
+    self.trade_trade_trade('sell')
+#update historic db with price info?"""
+
+        exec execthisstring
 
 #Following code will only be executed if this module is run independently, not when imported. Use it to test the module.
 if __name__ == "__main__":
@@ -184,7 +186,7 @@ if __name__ == "__main__":
     Gox = MtGoxHistoric.HistoricGoxRequester(database, start_time, end_time, initial_usd_balance, 0)
 
     Trader = TradeController(Gox, couch, "testing-historic")
-    window_size = 40
+    window_size = 40 * 5
     init_series = Trader.initialize_price_info(start_time, window_size, False)
 
     print "Initial account balances %d BTC and $%d USD" % (Trader.btc_balance, Trader.usd_balance)
@@ -200,10 +202,10 @@ if __name__ == "__main__":
     print "Final Holdings worth $%.2f USD vs Buy and Hold $%.2f" % (final_usd_balance, (initial_usd_balance/opening_price) * final_price)
     print "Profit: $%.2f" % (final_usd_balance - initial_usd_balance)
 
-    #Trader.complete_series.plot(style='k--')
-    #pd.ewma(Trader.complete_series, span=10).plot(style='b')
-    #pd.ewma(Trader.complete_series, span=(40)).plot(style='g')
-    #show()
+    Trader.complete_series.plot(style='k--')
+    pd.ewma(Trader.complete_series, span=window_size/4).plot(style='b')
+    pd.ewma(Trader.complete_series, span=(window_size)).plot(style='g')
+    show()
 
     """
     Gox = MtGox.GoxRequester(gox_api_key, gox_auth_secret)

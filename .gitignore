@@ -43,3 +43,4 @@ Dependencies/
 
 .idea/*
 newrelic.ini
+CouchApp/packages/
