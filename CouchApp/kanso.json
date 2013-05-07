@@ -2,10 +2,17 @@
 	"name": "bitbot-couchapp",
 	"version": "0.0.1",
 	"description": "Bitbot Trade Interface",
-	"attachments": ["index.html"],
+	"attachments": ["index.html", "css", "js"],
 	"modules": ["lib"],
+	"less": {
+		"compress": true,
+		"compile": ["css/bitbot.less"],
+		"remove_from_attachments": true
+	},
 	"dependencies": {
 		"attachments": null,
-		"modules": null
+		"modules": null,
+		"less-precompiler": null,
+		"bootstrap": null
 	}
 }
