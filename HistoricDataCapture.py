@@ -17,6 +17,15 @@ class HistoricDataCapture:
         self.api_interface = api_interface
         self.couch_interface = couch_interface
 
+    def current_gox_to_couchdb(self, frequency_seconds):
+
+        while True:
+            market_info = self.api_interface.market_info()
+            market_info["_id"] = str(int((time.time()) * 1e6))
+            self.couch_interface.save(market_info)
+            time.sleep(frequency_seconds)
+
+
     def gox_to_couchdb(self, start_time, end_time, time_interval):
         """
 
@@ -78,11 +87,26 @@ if __name__ == "__main__":
     end_time = 1365336000000000
     #time_interval is in seconds, groups trades together within this interval and averages them to create a single datapoint
     time_interval = 60
-    db_name = bitcoin_historic_data_db_name
-    database = couch[db_name]
+    #db_name = bitcoin_historic_data_db_name
+    db_name = "bitcoin-live-data"
 
+    if db_name not in couch:
+        database = couch.create(db_name)
+    else:
+        database = couch[db_name]
+    print "Logging trade info in %s db on couchDB" % db_name
+
+
+    #Create an instance of HistoricDataCapture Class passing our API and DB interface instances
+    CaptureLive = HistoricDataCapture(Gox, database)
+    update_freq = 60
+    print "Starting live GOX data capture, capturing price every %d seconds" % update_freq
+    CaptureLive.current_gox_to_couchdb(update_freq)
+
+    """
     #Create an instance of HistoricDataCapture Class passing our API and DB interface instances
     TestHistoric = HistoricDataCapture(Gox, database)
     print "Calling gox_to_couchdb requesting trades between %s and %s. \n Then averaging them into %d second time intervals and saving them to the %s database on our CouchDB" % (time.ctime(int(start_time / 1e6)), time.ctime(int(end_time / 1e6)), time_interval, db_name)
     TestHistoric.gox_to_couchdb(start_time, end_time, time_interval * 1000000)
     print "Should be done now, go check couchDB for new Documents"
+    """

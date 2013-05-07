@@ -1,1 +1,1 @@
-worker: python TradeController.py
+worker: python HistoricDataCapture.py

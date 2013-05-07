@@ -28,6 +28,8 @@ def catch_http_errors(function):
         return False
     return catcher
 
+def pretty(text):
+        return json.dumps(text, indent = 4, sort_keys = True)
 
 class GoxRequester:
     #TODO: Websockets version of this api
@@ -153,6 +155,7 @@ class GoxRequester:
     @catch_http_errors
     def market_info(self):
         data = self.send_http_request("BTCUSD/money/ticker", {})
+        #print(pretty(data))
         return {"time": data["data"]["now"], "volume": float(data["data"]["vol"]["value"]), "price": float(data["data"]["last"]["value"]), "vwap": float(data["data"]["vwap"]["value"]), "lag": self.market_lag()}
 
     @catch_http_errors
