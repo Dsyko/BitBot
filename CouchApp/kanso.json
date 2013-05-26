@@ -15,6 +15,7 @@
         "db": null,
         "session": null,
 		"less-precompiler": null,
-		"bootstrap": null
+		"bootstrap": null,
+        "kanso-font-awesome": null
 	}
 }
