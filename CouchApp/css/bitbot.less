@@ -5,9 +5,27 @@
 @iconWhiteSpritePath: "../../bootstrap/img/glyphicons-halflings-white.png";
   /* Now use bootstrap and less! */
 
+//Custom Bootsrap Styling
+@import url("http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic");
+// Typography
+// -------------------------
+@sansFontFamily:        "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+@baseFontSize:          15px;
+@baseFontFamily:        @sansFontFamily;
+@baseLineHeight:        21px;
+@altFontFamily:         @serifFontFamily;
+
+@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsColor:         inherit; // empty to use BS default, @textColor
+@textColor:             @grayLighter;
+
 body {
-  background-color: @orange;
-  background-image:url('/bitcoin-live-data/_design/bitbot-couchapp/img/px_by_Gre3g.png');
+  background-color: @grayDark;
+  background-image: url('/bitcoin-live-data/_design/bitbot-couchapp/img/px_by_Gre3g.png');
   @media
   (-webkit-min-device-pixel-ratio: 2){
     /* Retina-specific stuff here */
@@ -27,9 +45,12 @@ body {
 }
 
 #main {
-  background-color: @green;
-  height: 200px;
+  background-color: darken(@linkColor, 15%);
+}
 
+h1, h2, h3, h4, h5{
+  color: @grayLighter;
+  margin-left: 5px;
 }
 
 
