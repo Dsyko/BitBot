@@ -1,27 +1,22 @@
+//Bottstrap
 @import "bootstrap/less/bootstrap.less";
+
+//Codemirror styles
+@import "../lib/codemirror.css";
+@import "../theme/twilight.css";
+@import "../theme/monokai.css";
+
+.CodeMirror {
+  height: auto;
+}
+
+//FontAwesome
 @FontAwesomePath: "../font";
 @import "font-awesome.less";
 @iconSpritePath: "../../bootstrap/img/glyphicons-halflings.png";
 @iconWhiteSpritePath: "../../bootstrap/img/glyphicons-halflings-white.png";
   /* Now use bootstrap and less! */
 
-//Custom Bootsrap Styling
-@import url("http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic");
-// Typography
-// -------------------------
-@sansFontFamily:        "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
-@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
-
-@baseFontSize:          15px;
-@baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        21px;
-@altFontFamily:         @serifFontFamily;
-
-@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight:    bold;    // instead of browser default, bold
-@headingsColor:         inherit; // empty to use BS default, @textColor
-@textColor:             @grayLighter;
 
 body {
   background-color: @grayDark;
