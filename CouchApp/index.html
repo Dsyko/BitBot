@@ -8,6 +8,12 @@
     <meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" type="text/css" href="css/bitbot.css" />
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <script src="lib/codemirror.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="theme/twilight.css">
+    <link rel="stylesheet" type="text/css" href="theme/monokai.css">
+    <script src="mode/python/python.js"></script>
 </head>
 <body>
 
@@ -41,17 +47,21 @@
 
 		<div class="row-fluid">
 
-			<div id="sidebar" height="400px" class="span2">
+			<div id="sidebar" class="span2">
                 <h1>Sidebar!</h1>
 				<!--Sidebar content-->
 
 			</div>
-			<div id="main" height="600px" class="span10">
+			<div id="main" class="span10">
 				<h1>Lets get to trading!</h1>
+                <div class="row-fluid">
+                        <textarea id="Codemirror" rows="20" class="input-block-level span9"></textarea>
+                </div>
 				<!--Body content-->
 			</div>
 		</div>
 	</div>
-
+    <script src="modules.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

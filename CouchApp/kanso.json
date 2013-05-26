@@ -16,6 +16,8 @@
         "session": null,
 		"less-precompiler": null,
 		"bootstrap": null,
-        "kanso-font-awesome": null
+        "jquery": null,
+        "kanso-font-awesome": null,
+        "kanso-codemirror": null
 	}
 }
