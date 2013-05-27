@@ -7,3 +7,14 @@ exports.views = {
         }
     }
 };
+
+exports.filters = {
+    "code": function(doc, req) {
+        if(doc.type == "code"){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
